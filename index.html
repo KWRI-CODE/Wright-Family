@@ -19,10 +19,8 @@
     .header-emoji { font-size: 52px; display: block; margin-bottom: 6px; }
     header h1 { font-size: 2.2rem; font-weight: 800; color: var(--text); }
     header p { margin-top: 4px; font-size: 0.95rem; color: var(--text-light); font-weight: 600; }
-
-    /* TABS */
-    .tabs { display: flex; justify-content: center; gap: 4px; margin-top: 20px; padding: 0 8px; flex-wrap: wrap; }
-    .tab { padding: 9px 14px; border-radius: 16px 16px 0 0; border: none; font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 0.82rem; cursor: pointer; background: rgba(255,255,255,0.5); color: var(--text-light); transition: all 0.18s; white-space: nowrap; }
+    .tabs { display: flex; justify-content: center; gap: 3px; margin-top: 20px; padding: 0 8px; flex-wrap: wrap; }
+    .tab { padding: 9px 13px; border-radius: 16px 16px 0 0; border: none; font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 0.8rem; cursor: pointer; background: rgba(255,255,255,0.5); color: var(--text-light); transition: all 0.18s; white-space: nowrap; }
     .tab.active { background: var(--white); color: var(--text); }
 
     /* PANELS */
@@ -30,7 +28,7 @@
     .panel.active { display: block; }
 
     /* BROWSE */
-    .controls { max-width: 900px; margin: 24px auto 0; padding: 0 16px; }
+    .controls { max-width: 960px; margin: 24px auto 0; padding: 0 16px; }
     .search-wrap { position: relative; margin-bottom: 14px; }
     .search-wrap input { width: 100%; padding: 13px 20px 13px 46px; border: 2.5px solid #EDE0D4; border-radius: 50px; font-size: 0.95rem; font-family: 'Nunito', sans-serif; font-weight: 600; color: var(--text); background: white; outline: none; transition: border-color 0.2s; }
     .search-wrap input:focus { border-color: var(--coral); }
@@ -45,19 +43,19 @@
     .filter-btn[data-filter="snack"].active { background: var(--gold); }
     .filter-btn[data-filter="batch"].active { background: var(--blue); }
     .filter-btn:not(.active):hover { background: var(--coral); }
-    .ai-bar { max-width: 900px; margin: 12px auto 0; padding: 0 16px; display: flex; justify-content: flex-end; }
+    .ai-bar { max-width: 960px; margin: 12px auto 0; padding: 0 16px; display: flex; justify-content: flex-end; }
     .ai-btn { display: flex; align-items: center; gap: 8px; padding: 10px 20px; border-radius: 50px; border: none; background: linear-gradient(135deg, #E4D9F5, #FFDDD2); font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 0.88rem; color: var(--purple); cursor: pointer; transition: all 0.2s; box-shadow: 0 2px 12px rgba(123,94,167,0.15); }
     .ai-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 18px rgba(123,94,167,0.25); }
 
     /* GRID */
-    .grid { max-width: 900px; margin: 20px auto 60px; padding: 0 16px; display: grid; grid-template-columns: repeat(auto-fill, minmax(265px, 1fr)); gap: 18px; }
+    .grid { max-width: 960px; margin: 20px auto 60px; padding: 0 16px; display: grid; grid-template-columns: repeat(auto-fill, minmax(265px, 1fr)); gap: 18px; }
 
     /* CARD */
     .card { background: var(--card-bg); border-radius: var(--radius); box-shadow: 0 4px 20px rgba(0,0,0,0.07); overflow: hidden; display: flex; flex-direction: column; transition: transform 0.18s, box-shadow 0.18s; }
     .card:hover { transform: translateY(-3px); box-shadow: 0 8px 28px rgba(0,0,0,0.11); }
-    .card-header { padding: 20px 20px 12px; display: flex; align-items: flex-start; gap: 12px; }
-    .card-emoji { font-size: 36px; flex-shrink: 0; }
-    .card-title { font-size: 1rem; font-weight: 800; line-height: 1.3; }
+    .card-header { padding: 18px 20px 10px; display: flex; align-items: flex-start; gap: 12px; }
+    .card-emoji { font-size: 34px; flex-shrink: 0; }
+    .card-title { font-size: 0.98rem; font-weight: 800; line-height: 1.3; }
     .card-tags { display: flex; gap: 5px; flex-wrap: wrap; margin-top: 5px; }
     .tag { font-size: 0.68rem; font-weight: 700; padding: 2px 9px; border-radius: 50px; text-transform: uppercase; letter-spacing: 0.5px; }
     .tag-breakfast { background: #FEE4C4; color: #C4621A; }
@@ -65,9 +63,19 @@
     .tag-dinner { background: #E4D9F5; color: #5B3F8A; }
     .tag-snack { background: #FFF3C4; color: #9A6E00; }
     .tag-batch { background: #D4EAFF; color: #1A5FAA; }
-    .card-body { padding: 0 20px 14px; flex: 1; }
-    .card-desc { font-size: 0.85rem; color: var(--text-light); line-height: 1.55; font-weight: 600; }
-    .card-meta { display: flex; gap: 12px; margin-top: 10px; font-size: 0.78rem; font-weight: 700; color: var(--text-light); }
+    .card-body { padding: 0 20px 12px; flex: 1; }
+    .card-desc { font-size: 0.84rem; color: var(--text-light); line-height: 1.55; font-weight: 600; }
+    .card-meta { display: flex; gap: 12px; margin-top: 8px; font-size: 0.78rem; font-weight: 700; color: var(--text-light); flex-wrap: wrap; align-items: center; }
+
+    /* RATING STARS */
+    .star-row { display: flex; gap: 2px; align-items: center; }
+    .star { font-size: 14px; cursor: pointer; color: #DDD; transition: color 0.1s; line-height: 1; }
+    .star.filled { color: #F4A261; }
+    .star:hover, .star:hover ~ .star { color: #DDD; }
+    .star-row:hover .star { color: #F4A261; }
+    .star-row .star:hover ~ .star { color: #DDD; }
+    .last-cooked { font-size: 0.72rem; color: var(--text-light); font-weight: 600; }
+
     .card-actions { display: flex; gap: 8px; padding: 0 20px 16px; }
     .btn-expand, .btn-save, .btn-saved { flex: 1; padding: 9px; border-radius: 12px; border: none; font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 0.82rem; cursor: pointer; transition: all 0.15s; text-align: center; }
     .btn-expand { background: var(--white); color: var(--coral); }
@@ -84,39 +92,82 @@
     .empty-emoji { font-size: 48px; display: block; margin-bottom: 12px; }
 
     /* COOKBOOK */
-    .cookbook-wrap { max-width: 900px; margin: 28px auto 60px; padding: 0 16px; }
-    .cookbook-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; }
-    .cookbook-header h2 { font-size: 1.4rem; font-weight: 800; }
+    .cookbook-wrap { max-width: 960px; margin: 28px auto 60px; padding: 0 16px; }
+    .section-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; }
+    .section-header h2 { font-size: 1.4rem; font-weight: 800; }
 
     /* PLANNER */
-    .planner-wrap { max-width: 900px; margin: 28px auto 60px; padding: 0 16px; }
+    .planner-wrap { max-width: 960px; margin: 28px auto 60px; padding: 0 16px; }
     .planner-top { display: flex; align-items: flex-start; justify-content: space-between; flex-wrap: wrap; gap: 12px; margin-bottom: 20px; }
     .planner-top h2 { font-size: 1.4rem; font-weight: 800; }
     .planner-top p { font-size: 0.88rem; color: var(--text-light); font-weight: 600; margin-top: 4px; }
-    .planner-actions { display: flex; gap: 8px; flex-shrink: 0; }
-    .btn-suggest { padding: 10px 18px; border-radius: 50px; border: none; background: linear-gradient(135deg, var(--mint), #A8E6C8); font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 0.85rem; color: #1F6645; cursor: pointer; transition: all 0.2s; box-shadow: 0 2px 10px rgba(59,170,114,0.2); }
-    .btn-suggest:hover { transform: translateY(-2px); box-shadow: 0 4px 16px rgba(59,170,114,0.3); }
-    .btn-clear-week { padding: 10px 16px; border-radius: 50px; border: 2px solid #EDE0D4; background: white; font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 0.85rem; color: var(--text-light); cursor: pointer; }
-    .week-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px; }
+    .planner-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+    .btn-green { padding: 10px 16px; border-radius: 50px; border: none; background: linear-gradient(135deg, var(--mint), #A8E6C8); font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 0.82rem; color: #1F6645; cursor: pointer; transition: all 0.2s; }
+    .btn-green:hover { transform: translateY(-2px); box-shadow: 0 4px 14px rgba(59,170,114,0.3); }
+    .btn-outline { padding: 10px 16px; border-radius: 50px; border: 2px solid #EDE0D4; background: white; font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 0.82rem; color: var(--text-light); cursor: pointer; transition: all 0.15s; }
+    .btn-outline:hover { border-color: var(--coral); color: var(--coral); }
+    .btn-purple { padding: 10px 16px; border-radius: 50px; border: none; background: linear-gradient(135deg, var(--lavender), #C9B8E8); font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 0.82rem; color: var(--purple); cursor: pointer; transition: all 0.2s; }
+    .btn-purple:hover { transform: translateY(-2px); box-shadow: 0 4px 14px rgba(123,94,167,0.3); }
+
+    .week-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 14px; }
     .day-card { background: white; border-radius: var(--radius); box-shadow: 0 4px 16px rgba(0,0,0,0.07); overflow: hidden; }
-    .day-name { padding: 12px 16px; font-weight: 800; font-size: 0.95rem; background: linear-gradient(135deg, var(--peach), var(--lavender)); }
-    .meal-slot { padding: 10px 14px; border-bottom: 1px solid #F5EDE8; display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+    .day-name { padding: 10px 16px; font-weight: 800; font-size: 0.92rem; background: linear-gradient(135deg, var(--peach), var(--lavender)); }
+    .meal-slot { padding: 8px 12px; border-bottom: 1px solid #F5EDE8; display: flex; align-items: center; justify-content: space-between; gap: 6px; min-height: 44px; }
     .meal-slot:last-child { border-bottom: none; }
-    .meal-label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-light); min-width: 58px; }
-    .meal-value { font-size: 0.82rem; font-weight: 700; color: var(--text); flex: 1; line-height: 1.3; }
-    .meal-value.empty-slot { color: #CCC; font-weight: 600; font-style: italic; }
-    .slot-btn { background: none; border: none; font-size: 16px; cursor: pointer; padding: 2px; border-radius: 6px; transition: background 0.15s; flex-shrink: 0; }
+    .meal-slot.snack-slot { background: #FFFDF5; }
+    .meal-label { font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-light); min-width: 52px; line-height: 1.3; }
+    .meal-label.snack-label { color: var(--gold); }
+    .meal-value { font-size: 0.78rem; font-weight: 700; color: var(--text); flex: 1; line-height: 1.3; }
+    .meal-value.empty-slot { color: #CCC; font-weight: 600; font-style: italic; font-size: 0.75rem; }
+    .slot-btn { background: none; border: none; font-size: 14px; cursor: pointer; padding: 2px; border-radius: 6px; transition: background 0.15s; flex-shrink: 0; }
     .slot-btn:hover { background: var(--peach); }
+
+    /* SHOPPING */
+    .shopping-wrap { max-width: 760px; margin: 28px auto 60px; padding: 0 16px; }
+    .shopping-wrap h2 { font-size: 1.4rem; font-weight: 800; margin-bottom: 6px; }
+    .shopping-wrap > p { font-size: 0.88rem; color: var(--text-light); font-weight: 600; margin-bottom: 20px; }
+    .shopping-actions { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 24px; }
+    .ingredient-section { margin-bottom: 24px; }
+    .ingredient-section h3 { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 800; color: var(--text-light); margin-bottom: 10px; padding-bottom: 6px; border-bottom: 2px solid #F0E0D8; }
+    .ingredient-row { display: flex; align-items: center; gap: 12px; padding: 10px 14px; background: white; border-radius: 12px; margin-bottom: 6px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+    .ingredient-name { flex: 1; font-size: 0.88rem; font-weight: 700; }
+    .ingredient-qty { font-size: 0.82rem; color: var(--text-light); font-weight: 600; min-width: 80px; text-align: right; }
+    .ingredient-check { display: flex; gap: 8px; }
+    .check-btn { padding: 5px 12px; border-radius: 20px; border: 2px solid #EDE0D4; font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 0.72rem; cursor: pointer; background: white; color: var(--text-light); transition: all 0.15s; white-space: nowrap; }
+    .check-btn.have { background: var(--mint); border-color: var(--green); color: #1F6645; }
+    .check-btn.need { background: var(--peach); border-color: var(--coral); color: #C0392B; }
+    .multi-use { font-size: 0.7rem; color: var(--blue); font-weight: 700; margin-left: 4px; }
+
+    /* SHOPPING LIST OUTPUT */
+    .shopping-list-out { background: white; border-radius: var(--radius); padding: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.07); margin-top: 24px; display: none; }
+    .shopping-list-out.open { display: block; }
+    .shopping-list-out h3 { font-size: 1.1rem; font-weight: 800; margin-bottom: 16px; }
+    .list-section { margin-bottom: 18px; }
+    .list-section h4 { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 800; color: var(--text-light); margin-bottom: 8px; }
+    .list-item { display: flex; align-items: center; gap: 10px; padding: 7px 0; border-bottom: 1px solid #F5EDE8; font-size: 0.88rem; font-weight: 700; }
+    .list-item:last-child { border-bottom: none; }
+    .list-check { width: 18px; height: 18px; border: 2px solid #DDD; border-radius: 4px; flex-shrink: 0; }
+    .btn-print { padding: 10px 20px; border-radius: 50px; border: none; background: var(--text); color: white; font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 0.85rem; cursor: pointer; margin-top: 16px; }
 
     /* ADD RECIPE */
     .add-wrap { max-width: 600px; margin: 28px auto 60px; padding: 0 16px; }
-    .add-header { margin-bottom: 24px; }
+    .add-header { margin-bottom: 20px; }
     .add-header h2 { font-size: 1.4rem; font-weight: 800; }
     .add-header p { font-size: 0.88rem; color: var(--text-light); font-weight: 600; margin-top: 4px; }
-    .ai-tip { background: linear-gradient(135deg, #E4D9F5, #FFDDD2); border-radius: 14px; padding: 14px 18px; margin-bottom: 22px; font-size: 0.88rem; font-weight: 700; color: var(--purple); line-height: 1.6; }
-    .ai-tip strong { display: block; margin-bottom: 4px; font-size: 0.95rem; }
-    .add-form { background: white; border-radius: var(--radius); box-shadow: 0 4px 20px rgba(0,0,0,0.07); padding: 28px; }
-    .form-row { margin-bottom: 18px; }
+    .ai-tip { background: linear-gradient(135deg, #E4D9F5, #FFDDD2); border-radius: 14px; padding: 14px 18px; margin-bottom: 20px; font-size: 0.88rem; font-weight: 700; color: var(--purple); line-height: 1.6; }
+    .ai-tip strong { display: block; margin-bottom: 4px; font-size: 0.92rem; }
+    .import-box { background: white; border-radius: var(--radius); box-shadow: 0 4px 20px rgba(0,0,0,0.07); padding: 22px; margin-bottom: 10px; }
+    .import-box label { display: block; font-size: 0.82rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-light); margin-bottom: 10px; }
+    .import-box textarea { width: 100%; padding: 12px 14px; border: 2.5px solid #EDE0D4; border-radius: 12px; font-family: 'Nunito', sans-serif; font-weight: 600; font-size: 0.85rem; color: var(--text); background: var(--white); outline: none; resize: vertical; transition: border-color 0.2s; line-height: 1.6; }
+    .import-box textarea:focus { border-color: var(--purple); }
+    .btn-import { margin-top: 12px; width: 100%; padding: 13px; border-radius: 14px; border: none; background: linear-gradient(135deg, var(--purple), #9B6FD4); color: white; font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 0.95rem; cursor: pointer; transition: all 0.2s; }
+    .btn-import:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(123,94,167,0.4); }
+    .import-success { background: var(--mint); color: #1F6645; border-radius: 12px; padding: 12px 16px; font-size: 0.88rem; font-weight: 700; margin-top: 12px; }
+    .import-divider { text-align: center; margin: 20px 0; position: relative; }
+    .import-divider::before { content: ''; position: absolute; top: 50%; left: 0; right: 0; height: 2px; background: #EDE0D4; }
+    .import-divider span { background: var(--white); padding: 0 14px; position: relative; font-size: 0.82rem; font-weight: 700; color: var(--text-light); }
+    .add-form { background: white; border-radius: var(--radius); box-shadow: 0 4px 20px rgba(0,0,0,0.07); padding: 24px; }
+    .form-row { margin-bottom: 16px; }
     .form-row label { display: block; font-size: 0.82rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-light); margin-bottom: 7px; }
     .form-row input[type="text"], .form-row textarea { width: 100%; padding: 11px 14px; border: 2.5px solid #EDE0D4; border-radius: 12px; font-family: 'Nunito', sans-serif; font-weight: 600; font-size: 0.9rem; color: var(--text); background: var(--white); outline: none; transition: border-color 0.2s; resize: vertical; }
     .form-row input:focus, .form-row textarea:focus { border-color: var(--coral); }
@@ -134,40 +185,39 @@
     /* MODALS */
     .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(61,53,53,0.45); z-index: 100; align-items: center; justify-content: center; padding: 20px; }
     .modal-overlay.open { display: flex; }
-    .modal { background: white; border-radius: var(--radius); padding: 28px; max-width: 440px; width: 100%; max-height: 80vh; overflow-y: auto; box-shadow: 0 20px 60px rgba(0,0,0,0.18); }
-    .modal h3 { font-size: 1.1rem; font-weight: 800; margin-bottom: 16px; }
-    .modal-list { display: flex; flex-direction: column; gap: 8px; }
-    .modal-item { padding: 11px 14px; border-radius: 12px; background: var(--white); border: 2px solid transparent; font-weight: 700; font-size: 0.88rem; cursor: pointer; display: flex; align-items: center; gap: 10px; transition: all 0.15s; }
+    .modal { background: white; border-radius: var(--radius); padding: 26px; max-width: 440px; width: 100%; max-height: 82vh; overflow-y: auto; box-shadow: 0 20px 60px rgba(0,0,0,0.18); }
+    .modal h3 { font-size: 1.1rem; font-weight: 800; margin-bottom: 14px; }
+    .modal-list { display: flex; flex-direction: column; gap: 6px; }
+    .modal-item { padding: 10px 14px; border-radius: 12px; background: var(--white); border: 2px solid transparent; font-weight: 700; font-size: 0.88rem; cursor: pointer; display: flex; align-items: center; gap: 10px; transition: all 0.15s; }
     .modal-item:hover { border-color: var(--coral); background: var(--peach); }
-    .modal-cancel { margin-top: 14px; width: 100%; padding: 11px; border-radius: 12px; border: 2px solid #EDE0D4; background: white; font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 0.88rem; color: var(--text-light); cursor: pointer; }
-    .modal-cancel:hover { background: var(--white); }
-
-    /* AI MODAL */
+    .modal-cancel { margin-top: 12px; width: 100%; padding: 11px; border-radius: 12px; border: 2px solid #EDE0D4; background: white; font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 0.88rem; color: var(--text-light); cursor: pointer; }
+    .modal-input { width: 100%; padding: 11px 14px; border: 2.5px solid #EDE0D4; border-radius: 12px; font-family: 'Nunito', sans-serif; font-weight: 600; font-size: 0.9rem; color: var(--text); background: var(--white); outline: none; margin-bottom: 12px; }
+    .modal-input:focus { border-color: var(--coral); }
+    .template-item { padding: 12px 14px; border-radius: 12px; background: var(--white); border: 2px solid #EDE0D4; margin-bottom: 8px; }
+    .template-item-top { display: flex; align-items: center; justify-content: space-between; }
+    .template-name { font-weight: 800; font-size: 0.9rem; }
+    .template-date { font-size: 0.75rem; color: var(--text-light); font-weight: 600; }
+    .template-actions { display: flex; gap: 6px; margin-top: 8px; }
+    .btn-tpl-use { padding: 6px 14px; border-radius: 20px; border: none; background: var(--mint); color: #1F6645; font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 0.8rem; cursor: pointer; }
+    .btn-tpl-del { padding: 6px 10px; border-radius: 20px; border: 2px solid #EDE0D4; background: white; color: var(--text-light); font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 0.8rem; cursor: pointer; }
     .ai-modal { max-width: 500px; }
-    .ai-modal .how-it-works { background: var(--yellow); border-radius: 14px; padding: 14px 16px; margin-bottom: 18px; font-size: 0.85rem; font-weight: 700; line-height: 1.7; color: #7A5800; }
-    .ai-modal .how-it-works strong { display: block; margin-bottom: 2px; font-size: 0.9rem; }
+    .how-it-works { background: var(--yellow); border-radius: 14px; padding: 14px 16px; margin-bottom: 18px; font-size: 0.85rem; font-weight: 700; line-height: 1.7; color: #7A5800; }
+    .how-it-works strong { display: block; margin-bottom: 2px; font-size: 0.9rem; }
     .ai-options { display: flex; flex-direction: column; gap: 12px; margin-bottom: 16px; }
     .ai-option label { font-size: 0.82rem; font-weight: 700; color: var(--text-light); display: block; margin-bottom: 5px; }
     .ai-option select, .ai-option input { width: 100%; padding: 10px 14px; border-radius: 12px; border: 2px solid #EDE0D4; font-family: 'Nunito', sans-serif; font-weight: 600; font-size: 0.88rem; color: var(--text); background: white; outline: none; }
-    .ai-option select:focus, .ai-option input:focus { border-color: var(--purple); }
     .btn-ask-claude { width: 100%; padding: 13px; border-radius: 14px; border: none; background: linear-gradient(135deg, var(--purple), #9B6FD4); color: white; font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 0.95rem; cursor: pointer; transition: all 0.2s; }
     .btn-ask-claude:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(123,94,167,0.4); }
-    .btn-then-add { width: 100%; padding: 11px; border-radius: 12px; border: 2px solid var(--coral); background: var(--peach); font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 0.88rem; color: var(--coral); cursor: pointer; margin-top: 8px; transition: all 0.15s; }
-    .btn-then-add:hover { background: var(--coral); color: white; }
+    .btn-then-add { width: 100%; padding: 11px; border-radius: 12px; border: 2px solid var(--coral); background: var(--peach); font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 0.88rem; color: var(--coral); cursor: pointer; margin-top: 8px; }
+
+    /* PRINT */
+    @media print {
+      header, .tabs, .shopping-actions, .btn-print, .ingredient-check, nav { display: none !important; }
+      .shopping-list-out { box-shadow: none; border: none; padding: 0; }
+      body { background: white; }
+    }
 
     footer { text-align: center; padding: 20px; font-size: 0.8rem; color: var(--text-light); font-weight: 600; }
-
-    /* IMPORT BOX */
-    .import-box { background: white; border-radius: var(--radius); box-shadow: 0 4px 20px rgba(0,0,0,0.07); padding: 24px; margin-bottom: 10px; }
-    .import-box label { display: block; font-size: 0.82rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-light); margin-bottom: 10px; }
-    .import-box textarea { width: 100%; padding: 12px 14px; border: 2.5px solid #EDE0D4; border-radius: 12px; font-family: 'Nunito', sans-serif; font-weight: 600; font-size: 0.85rem; color: var(--text); background: var(--white); outline: none; resize: vertical; transition: border-color 0.2s; line-height: 1.6; }
-    .import-box textarea:focus { border-color: var(--purple); }
-    .btn-import { margin-top: 12px; width: 100%; padding: 13px; border-radius: 14px; border: none; background: linear-gradient(135deg, var(--purple), #9B6FD4); color: white; font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 0.95rem; cursor: pointer; transition: all 0.2s; }
-    .btn-import:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(123,94,167,0.4); }
-    .import-success { background: var(--mint); color: #1F6645; border-radius: 12px; padding: 12px 16px; font-size: 0.88rem; font-weight: 700; margin-top: 12px; }
-    .import-divider { text-align: center; margin: 22px 0; position: relative; }
-    .import-divider::before { content: ''; position: absolute; top: 50%; left: 0; right: 0; height: 2px; background: #EDE0D4; }
-    .import-divider span { background: var(--white); padding: 0 14px; position: relative; font-size: 0.82rem; font-weight: 700; color: var(--text-light); }
   </style>
 </head>
 <body>
@@ -180,6 +230,7 @@
     <button class="tab active" data-tab="browse">🥘 Recipes</button>
     <button class="tab" data-tab="cookbook">📖 Cookbook</button>
     <button class="tab" data-tab="planner">📅 Weekly Plan</button>
+    <button class="tab" data-tab="shopping">🛒 Shopping</button>
     <button class="tab" data-tab="add">➕ Add Recipe</button>
   </div>
 </header>
@@ -200,16 +251,14 @@
       <button class="filter-btn" data-filter="batch">📦 Batch Cook</button>
     </div>
   </div>
-  <div class="ai-bar">
-    <button class="ai-btn" onclick="openAIModal()">✨ Get New Recipe Ideas</button>
-  </div>
+  <div class="ai-bar"><button class="ai-btn" onclick="openAIModal()">✨ Get New Recipe Ideas</button></div>
   <div class="grid" id="grid"></div>
 </div>
 
 <!-- COOKBOOK -->
 <div class="panel" id="panel-cookbook">
   <div class="cookbook-wrap">
-    <div class="cookbook-header"><h2>📖 My Cookbook</h2></div>
+    <div class="section-header"><h2>📖 My Cookbook</h2></div>
     <div id="cookbook-grid" class="grid" style="margin:0 0 60px;"></div>
   </div>
 </div>
@@ -220,14 +269,34 @@
     <div class="planner-top">
       <div>
         <h2>📅 Weekly Meal Plan</h2>
-        <p>Tap any slot to change a meal. Your plan saves automatically.</p>
+        <p>Tap any slot to change a meal. Saves automatically.</p>
       </div>
       <div class="planner-actions">
-        <button class="btn-suggest" onclick="loadSuggestedWeek()">✨ Suggest a week</button>
-        <button class="btn-clear-week" onclick="clearPlanner()">Clear</button>
+        <button class="btn-green" onclick="loadSuggestedWeek()">✨ Suggest a week</button>
+        <button class="btn-purple" onclick="openSaveTemplate()">💾 Save as template</button>
+        <button class="btn-purple" onclick="openLoadTemplate()">📂 Load template</button>
+        <button class="btn-outline" onclick="clearPlanner()">Clear</button>
       </div>
     </div>
     <div class="week-grid" id="week-grid"></div>
+  </div>
+</div>
+
+<!-- SHOPPING -->
+<div class="panel" id="panel-shopping">
+  <div class="shopping-wrap">
+    <h2>🛒 Shopping List</h2>
+    <p>Based on this week's meal plan. Check what you have — then generate your list.</p>
+    <div class="shopping-actions">
+      <button class="btn-green" onclick="generateShoppingList()">📋 Generate Shopping List</button>
+      <button class="btn-outline" onclick="clearInventory()">Reset checks</button>
+    </div>
+    <div id="ingredient-checklist"></div>
+    <div class="shopping-list-out" id="shopping-list-out">
+      <h3>🛍 Your Shopping List</h3>
+      <div id="shopping-list-items"></div>
+      <button class="btn-print" onclick="window.print()">🖨 Print list</button>
+    </div>
   </div>
 </div>
 
@@ -242,7 +311,6 @@
       <strong>💡 Quick import from Claude</strong>
       Tap ✨ Get New Recipe Ideas → Claude gives you a recipe in the right format → copy it → paste it below and hit Import. Done.
     </div>
-
     <div class="import-box">
       <label>Paste Claude's recipe here</label>
       <textarea id="import-paste" rows="7" placeholder="Name: Cheesy Lentil Bites&#10;Emoji: 🫘&#10;Meal: dinner, batch&#10;Description: Soft and cheesy, great for little fingers.&#10;Time: 30 min&#10;Makes: ~20 bites&#10;Ingredients:&#10;1 cup red lentils&#10;½ cup cheddar&#10;Steps:&#10;Cook lentils until soft.&#10;Bake at 375F for 18 min.&#10;Storage: Fridge 4 days · Freeze 2 months"></textarea>
@@ -250,18 +318,10 @@
       <div id="import-error" class="add-error" style="display:none"></div>
       <div id="import-success" class="import-success" style="display:none"></div>
     </div>
-
     <div class="import-divider"><span>or fill in manually</span></div>
-
     <div class="add-form">
-      <div class="form-row">
-        <label>Recipe name *</label>
-        <input type="text" id="add-title" placeholder="e.g. Cheesy Lentil Bites" />
-      </div>
-      <div class="form-row">
-        <label>Emoji</label>
-        <input type="text" id="add-emoji" placeholder="🍽" maxlength="2" style="width:80px" />
-      </div>
+      <div class="form-row"><label>Recipe name *</label><input type="text" id="add-title" placeholder="e.g. Cheesy Lentil Bites" /></div>
+      <div class="form-row"><label>Emoji</label><input type="text" id="add-emoji" placeholder="🍽" maxlength="2" style="width:80px" /></div>
       <div class="form-row">
         <label>Meal type * <span style="font-weight:600;color:var(--text-light);font-size:0.8rem">(pick all that apply)</span></label>
         <div class="tag-checks">
@@ -272,30 +332,18 @@
           <label class="tag-check"><input type="checkbox" value="batch" /> 📦 Batch Cook</label>
         </div>
       </div>
-      <div class="form-row">
-        <label>Description <span style="font-weight:600;color:var(--text-light);font-size:0.8rem">(one line summary)</span></label>
-        <input type="text" id="add-desc" placeholder="e.g. Soft and cheesy, great for little fingers." />
-      </div>
+      <div class="form-row"><label>Description</label><input type="text" id="add-desc" placeholder="e.g. Soft and cheesy, great for little fingers." /></div>
       <div class="form-row two-col">
         <div><label>Cook time</label><input type="text" id="add-time" placeholder="e.g. 25 min" /></div>
         <div><label>Makes</label><input type="text" id="add-makes" placeholder="e.g. ~20 bites" /></div>
       </div>
-      <div class="form-row">
-        <label>Ingredients <span style="font-weight:600;color:var(--text-light);font-size:0.8rem">(one per line)</span></label>
-        <textarea id="add-ingredients" rows="5" placeholder="1 cup lentils&#10;½ cup shredded cheddar&#10;1 egg"></textarea>
-      </div>
-      <div class="form-row">
-        <label>Steps <span style="font-weight:600;color:var(--text-light);font-size:0.8rem">(one per line)</span></label>
-        <textarea id="add-steps" rows="5" placeholder="Cook lentils until soft.&#10;Mash with cheese and egg.&#10;Form into small balls and bake."></textarea>
-      </div>
-      <div class="form-row">
-        <label>Storage</label>
-        <input type="text" id="add-storage" placeholder="e.g. Fridge 4 days · Freeze 2 months" />
-      </div>
+      <div class="form-row"><label>Ingredients <span style="font-weight:600;color:var(--text-light);font-size:0.8rem">(one per line)</span></label><textarea id="add-ingredients" rows="5" placeholder="1 cup lentils&#10;½ cup shredded cheddar&#10;1 egg"></textarea></div>
+      <div class="form-row"><label>Steps <span style="font-weight:600;color:var(--text-light);font-size:0.8rem">(one per line)</span></label><textarea id="add-steps" rows="5" placeholder="Cook lentils until soft.&#10;Mash with cheese and egg.&#10;Form into small balls and bake."></textarea></div>
+      <div class="form-row"><label>Storage</label><input type="text" id="add-storage" placeholder="e.g. Fridge 4 days · Freeze 2 months" /></div>
       <div id="add-error" class="add-error" style="display:none"></div>
       <button class="btn-add-save" onclick="saveCustomRecipe()">Save Recipe ✓</button>
     </div>
-    <div id="custom-list-wrap" style="margin-top:40px;display:none">
+    <div id="custom-list-wrap" style="margin-top:36px;display:none">
       <h3 style="font-size:1.1rem;font-weight:800;margin-bottom:14px">Your added recipes</h3>
       <div id="custom-list" class="grid" style="margin:0 0 40px;padding:0"></div>
     </div>
@@ -308,8 +356,29 @@
 <div class="modal-overlay" id="picker-modal">
   <div class="modal">
     <h3 id="picker-title">Choose a recipe</h3>
+    <div style="margin-bottom:10px"><input class="modal-input" id="picker-search" placeholder="Search…" oninput="filterPicker()" /></div>
     <div class="modal-list" id="picker-list"></div>
     <button class="modal-cancel" onclick="closeModal('picker-modal')">Cancel</button>
+  </div>
+</div>
+
+<!-- SAVE TEMPLATE MODAL -->
+<div class="modal-overlay" id="save-template-modal">
+  <div class="modal">
+    <h3>💾 Save as Template</h3>
+    <p style="font-size:0.85rem;color:var(--text-light);font-weight:600;margin-bottom:14px">Give this week a name so you can load it again later.</p>
+    <input class="modal-input" id="template-name-input" placeholder="e.g. Week of June 16, Easy batch week…" />
+    <button class="btn-add-save" onclick="saveTemplate()">Save Template</button>
+    <button class="modal-cancel" onclick="closeModal('save-template-modal')">Cancel</button>
+  </div>
+</div>
+
+<!-- LOAD TEMPLATE MODAL -->
+<div class="modal-overlay" id="load-template-modal">
+  <div class="modal">
+    <h3>📂 Load a Template</h3>
+    <div id="template-list"></div>
+    <button class="modal-cancel" onclick="closeModal('load-template-modal')">Cancel</button>
   </div>
 </div>
 
@@ -320,29 +389,16 @@
     <div class="how-it-works">
       <strong>How it works</strong>
       1. Fill in what you're looking for below.<br>
-      2. Tap "Open Claude" — it opens in a new tab with a ready-made prompt.<br>
-      3. Claude gives you recipe ideas. Like one? Copy it.<br>
-      4. Come back here and tap ➕ Add Recipe to save it to the site.
+      2. Tap "Open Claude" — a new tab opens with a ready-made prompt.<br>
+      3. Claude gives you recipes in the right format. Copy one.<br>
+      4. Come back → ➕ Add Recipe → paste → Import. Done.
     </div>
     <div class="ai-options">
-      <div class="ai-option">
-        <label>Meal type</label>
-        <select id="ai-meal">
-          <option value="any">Any meal</option>
-          <option value="breakfast">Breakfast</option>
-          <option value="lunch">Lunch</option>
-          <option value="dinner">Dinner</option>
-          <option value="snack">Snack</option>
-        </select>
+      <div class="ai-option"><label>Meal type</label>
+        <select id="ai-meal"><option value="any">Any meal</option><option value="breakfast">Breakfast</option><option value="lunch">Lunch</option><option value="dinner">Dinner</option><option value="snack">Snack</option></select>
       </div>
-      <div class="ai-option">
-        <label>Key ingredient (optional)</label>
-        <input type="text" id="ai-ingredient" placeholder="e.g. sweet potato, chicken, oats…" />
-      </div>
-      <div class="ai-option">
-        <label>Any notes (optional)</label>
-        <input type="text" id="ai-notes" placeholder="e.g. no eggs, something freezable…" />
-      </div>
+      <div class="ai-option"><label>Key ingredient (optional)</label><input type="text" id="ai-ingredient" placeholder="e.g. sweet potato, chicken, oats…" /></div>
+      <div class="ai-option"><label>Any notes (optional)</label><input type="text" id="ai-notes" placeholder="e.g. no eggs, something freezable…" /></div>
     </div>
     <button class="btn-ask-claude" onclick="askClaude()">Open Claude & Get Ideas →</button>
     <button class="btn-then-add" onclick="closeModal('ai-modal'); switchTab('add')">➕ Skip to Add Recipe</button>
@@ -353,96 +409,130 @@
 <script>
 // ── RECIPES ───────────────────────────────────────────
 const recipes = [
-  // BREAKFAST
-  { id:1, emoji:"🥞", title:"Banana Oat Pancakes", tags:["breakfast","batch"], desc:"2-ingredient base — banana and eggs. No added sugar, naturally sweet. Freeze extras.", time:"10 min", makes:"~8 pancakes", ingredients:["1 ripe banana","2 eggs","2 tbsp rolled oats (optional)","Pinch of cinnamon","Butter for the pan"], steps:["Mash the banana until smooth.","Whisk in eggs, oats, and cinnamon.","Cook small silver dollar rounds over medium-low heat, 2–3 min per side.","Cool before serving.","Freeze extras between parchment."], storage:"Fridge 3 days · Freeze 2 months" },
-  { id:2, emoji:"🥚", title:"Soft Scrambled Eggs with Avocado", tags:["breakfast"], desc:"Ready in 5 minutes. Low and slow is the secret — creamy, never rubbery.", time:"5 min", makes:"1 serving", ingredients:["1–2 eggs","1 tsp butter","Splash of whole milk","¼ ripe avocado"], steps:["Whisk eggs with a splash of milk.","Melt butter in a small pan over low heat.","Add eggs and stir constantly.","Pull off heat while still slightly glossy.","Serve alongside avocado spears."], storage:"Best fresh" },
-  { id:3, emoji:"🧁", title:"Mini Egg Muffins", tags:["breakfast","batch"], desc:"Crustless mini quiches baked in a muffin tin. Make Sunday, pull from the fridge all week.", time:"25 min", makes:"~18–20 muffins", ingredients:["6 eggs","3 tbsp whole milk","¼ cup shredded cheddar","¼ cup finely diced bell pepper","¼ cup chopped spinach or zucchini","Cooking spray"], steps:["Preheat oven to 350°F. Grease mini muffin tin.","Whisk eggs and milk, stir in cheese and veg.","Pour into cups ¾ full.","Bake 15–18 min until set.","Cool 5 min before removing."], storage:"Fridge 4 days · Freeze 1 month" },
-  { id:4, emoji:"🍞", title:"French Toast Strips", tags:["breakfast"], desc:"Soft inside, golden outside. Naturally sweet from cinnamon and egg — no syrup needed.", time:"10 min", makes:"6–8 strips", ingredients:["2 slices whole grain bread","1 egg","2 tbsp whole milk","Pinch of cinnamon","Butter for the pan"], steps:["Whisk egg, milk, and cinnamon.","Soak each bread slice 15–20 sec per side.","Cook over medium-low heat in butter, 2–3 min per side.","Cool slightly, cut into strips."], storage:"Fridge 1–2 days" },
-  { id:19, emoji:"🫙", title:"Baked Oatmeal Cups", tags:["breakfast","batch"], desc:"Portable baked oatmeal in a muffin tin. Soft, lightly sweet, packed with fiber. Great for grab-and-go mornings.", time:"30 min", makes:"~12 cups", ingredients:["2 cups rolled oats","2 eggs","1½ cups whole milk","1 ripe banana, mashed","2 tbsp maple syrup","1 tsp cinnamon","½ tsp vanilla","Handful of blueberries or diced strawberries"], steps:["Preheat oven to 375°F. Grease a regular muffin tin.","Whisk eggs, milk, banana, maple syrup, cinnamon, and vanilla.","Stir in oats until combined.","Fold in fruit.","Fill muffin cups ¾ full.","Bake 22–25 min until golden and set.","Cool 5 min before removing."], storage:"Fridge 4 days · Freeze 2 months (microwave 30 sec)" },
-  { id:20, emoji:"🧇", title:"Cottage Cheese Pancakes", tags:["breakfast","batch"], desc:"High protein pancakes — fluffier and more filling than regular. The cottage cheese melts in and you can't taste it.", time:"15 min", makes:"~10 small pancakes", ingredients:["½ cup full-fat cottage cheese","2 eggs","¼ cup rolled oats","½ tsp vanilla","Pinch of cinnamon","Butter for the pan"], steps:["Blend all ingredients until smooth (or whisk well if no blender).","Heat pan over medium-low heat, melt a little butter.","Pour small rounds, cook 2–3 min until bubbles form.","Flip and cook 1–2 min more.","Serve with soft fruit."], storage:"Fridge 3 days · Freeze 2 months" },
-  { id:21, emoji:"🍳", title:"Ricotta Toast with Fruit", tags:["breakfast","snack"], desc:"Creamy ricotta spread on soft toast with mashed fruit on top. Smooth, mild, and easy to eat.", time:"3 min", makes:"1 serving", ingredients:["1 slice soft whole grain bread, lightly toasted","2 tbsp full-fat ricotta","Soft fruit: mashed banana, blueberries, or diced mango"], steps:["Spread ricotta generously on toast.","Top with soft fruit — mash lightly if needed.","Cut into strips or squares."], storage:"Best fresh" },
+  { id:1,  emoji:"🥞", title:"Banana Oat Pancakes",              tags:["breakfast","batch"],         desc:"2-ingredient base — banana and eggs. Naturally sweet. Freeze extras.", time:"10 min", makes:"~8 pancakes",    ingredients:["1 ripe banana","2 eggs","2 tbsp rolled oats","Pinch of cinnamon","Butter for the pan"],                                                                                          steps:["Mash the banana until smooth.","Whisk in eggs, oats, and cinnamon.","Cook small silver dollar rounds over medium-low heat, 2–3 min per side.","Cool before serving.","Freeze extras between parchment."], storage:"Fridge 3 days · Freeze 2 months" },
+  { id:2,  emoji:"🥚", title:"Soft Scrambled Eggs with Avocado", tags:["breakfast"],                  desc:"Ready in 5 minutes. Low and slow — creamy, never rubbery.",            time:"5 min",  makes:"1 serving",      ingredients:["1–2 eggs","1 tsp butter","Splash of whole milk","¼ ripe avocado"],                                                                                                              steps:["Whisk eggs with milk.","Melt butter over low heat.","Stir eggs constantly.","Pull off heat while glossy.","Serve with avocado spears."],                                                              storage:"Best fresh" },
+  { id:3,  emoji:"🧁", title:"Mini Egg Muffins",                  tags:["breakfast","batch"],         desc:"Crustless mini quiches. Make Sunday, pull from the fridge all week.",  time:"25 min", makes:"~18–20 muffins",  ingredients:["6 eggs","3 tbsp whole milk","¼ cup shredded cheddar","¼ cup finely diced bell pepper","¼ cup chopped spinach","Cooking spray"],                                                   steps:["Preheat oven to 350°F. Grease mini muffin tin.","Whisk eggs and milk, stir in cheese and veg.","Pour into cups ¾ full.","Bake 15–18 min until set.","Cool 5 min before removing."],                   storage:"Fridge 4 days · Freeze 1 month" },
+  { id:4,  emoji:"🍞", title:"French Toast Strips",               tags:["breakfast"],                  desc:"Soft inside, golden outside. Naturally sweet — no syrup needed.",      time:"10 min", makes:"6–8 strips",     ingredients:["2 slices whole grain bread","1 egg","2 tbsp whole milk","Pinch of cinnamon","Butter for the pan"],                                                                                   steps:["Whisk egg, milk, and cinnamon.","Soak bread 15–20 sec per side.","Cook in butter 2–3 min per side.","Cool slightly, cut into strips."],                                                               storage:"Fridge 1–2 days" },
+  { id:19, emoji:"🫙", title:"Baked Oatmeal Cups",                tags:["breakfast","batch"],         desc:"Portable baked oatmeal in a muffin tin. Great for grab-and-go mornings.", time:"30 min", makes:"~12 cups",    ingredients:["2 cups rolled oats","2 eggs","1½ cups whole milk","1 ripe banana, mashed","2 tbsp maple syrup","1 tsp cinnamon","½ tsp vanilla","Handful of blueberries"],                              steps:["Preheat oven to 375°F.","Whisk eggs, milk, banana, maple syrup, cinnamon, vanilla.","Stir in oats.","Fold in fruit.","Fill muffin cups ¾ full.","Bake 22–25 min until golden.","Cool 5 min."],       storage:"Fridge 4 days · Freeze 2 months" },
+  { id:20, emoji:"🧇", title:"Cottage Cheese Pancakes",           tags:["breakfast","batch"],         desc:"High protein, fluffier than regular pancakes. Cottage cheese melts in.", time:"15 min", makes:"~10 pancakes", ingredients:["½ cup full-fat cottage cheese","2 eggs","¼ cup rolled oats","½ tsp vanilla","Pinch of cinnamon","Butter for the pan"],                                                              steps:["Blend all ingredients until smooth.","Heat pan over medium-low, melt butter.","Pour small rounds, cook 2–3 min until bubbles form.","Flip and cook 1–2 min more.","Serve with soft fruit."],          storage:"Fridge 3 days · Freeze 2 months" },
+  { id:21, emoji:"🍳", title:"Ricotta Toast with Fruit",          tags:["breakfast","snack"],         desc:"Creamy ricotta on soft toast with mashed fruit. Smooth and mild.",      time:"3 min",  makes:"1 serving",      ingredients:["1 slice whole grain bread, lightly toasted","2 tbsp full-fat ricotta","Soft fruit: banana, blueberries, or mango"],                                                                  steps:["Spread ricotta on toast.","Top with soft fruit.","Cut into strips or squares."],                                                                                                                       storage:"Best fresh" },
+  { id:5,  emoji:"🥜", title:"PB & J",                            tags:["lunch"],                     desc:"Claire's lunch staple. Thin peanut butter and jam on whole grain. Cut into strips.", time:"2 min", makes:"1 serving", ingredients:["1 slice whole grain bread","Thin layer natural peanut butter","Thin layer no-sugar-added jam"],                                                                    steps:["Spread peanut butter.","Add jam.","Cut into strips.","Serve with avocado and fruit."],                                                                                                                storage:"Best fresh" },
+  { id:6,  emoji:"🫓", title:"Cheese Quesadilla with Avocado",   tags:["lunch"],                     desc:"Soft tortilla, melted cheese, avocado. Quick and easy.",               time:"5 min",  makes:"1 serving",      ingredients:["1 small whole wheat tortilla","2 tbsp shredded cheddar","¼ ripe avocado"],                                                                                                         steps:["Heat dry pan over medium.","Add cheese to half tortilla, fold.","Cook 1–2 min per side.","Cool, cut into strips.","Serve with avocado."],                                                             storage:"Best fresh" },
+  { id:22, emoji:"🥗", title:"Avocado Egg Salad on Toast",        tags:["lunch"],                     desc:"Mashed avocado with chopped hard-boiled egg on toast strips.",         time:"10 min", makes:"1–2 servings",   ingredients:["1 hard-boiled egg, chopped","¼ ripe avocado","Squeeze of lemon","1 slice whole grain bread"],                                                                                       steps:["Mash avocado.","Chop egg finely and mix in.","Add lemon.","Spread on toast.","Cut into strips."],                                                                                                    storage:"Best fresh" },
+  { id:23, emoji:"🌮", title:"Soft Bean & Cheese Tacos",          tags:["lunch","dinner"],            desc:"Warm soft tortilla with mashed beans and melted cheese.",              time:"8 min",  makes:"2 small tacos",  ingredients:["2 small soft tortillas","¼ cup canned black beans, mashed","2 tbsp shredded cheddar","Pinch of cumin","Mashed avocado for serving"],                                              steps:["Warm tortillas in dry pan 30 sec per side.","Spread beans, sprinkle cheese.","Fold and heat 1 min.","Cool, cut into strips.","Serve with avocado."],                                                  storage:"Best fresh" },
+  { id:24, emoji:"🐟", title:"Tuna Salad Bites",                  tags:["lunch","snack"],             desc:"Mild tuna with Greek yogurt. Serve on crackers or toast strips.",      time:"5 min",  makes:"1–2 servings",   ingredients:["1 small can (2.5 oz) light tuna in water, drained","1 tbsp plain Greek yogurt","Squeeze of lemon","Soft crackers or toast strips"],                                                    steps:["Drain tuna and flake.","Mix in Greek yogurt and lemon.","Spoon onto crackers or toast."],                                                                                                             storage:"Tuna mix fridge 2 days" },
+  { id:7,  emoji:"🧇", title:"Sweet Potato Bean Broccoli Muffins",tags:["dinner","lunch","batch"],    desc:"Claire's dinner staple. Protein, fiber, and veggies. Big batch Sunday.", time:"35 min", makes:"~24 mini muffins", ingredients:["1 cup mashed sweet potato","½ cup canned black beans, mashed","½ cup broccoli, steamed and finely chopped","2 eggs","¼ cup oat flour","¼ tsp garlic powder"],             steps:["Preheat oven to 375°F. Grease mini muffin tin.","Mash sweet potato and beans.","Mix in broccoli, eggs, flour, garlic powder.","Fill cups ¾ full.","Bake 18–22 min until golden.","Cool 5 min."],    storage:"Fridge 4 days · Freeze 2 months" },
+  { id:8,  emoji:"🫐", title:"Quinoa Broccoli Cheese Muffins",    tags:["dinner","lunch","batch"],    desc:"Complete protein, cheese binds it all. Claire's other dinner staple.",  time:"35 min", makes:"~20–24 muffins",  ingredients:["1 cup cooked quinoa","½ cup broccoli, steamed and chopped","½ cup shredded cheddar","2 eggs","2 tbsp whole milk","¼ tsp garlic powder"],                                             steps:["Preheat oven to 375°F. Grease mini muffin tin.","Whisk eggs and milk, mix in all ingredients.","Fill cups ¾ full.","Bake 20–25 min until golden.","Cool 5 min."],                                    storage:"Fridge 4 days · Freeze 2 months" },
+  { id:9,  emoji:"🍝", title:"Pasta with Hidden Veggie Sauce",    tags:["dinner","batch"],            desc:"Tomato sauce blended with carrots, zucchini, spinach. Freeze in ice cube trays.", time:"30 min", makes:"4–6 servings", ingredients:["1 can (14 oz) crushed tomatoes, no salt added","1 medium carrot, chopped","1 small zucchini, chopped","1 large handful baby spinach","2 cloves garlic","1 tbsp olive oil","Short pasta, cooked very soft"], steps:["Cook garlic in olive oil 1 min.","Add carrot and zucchini, cook 5 min.","Add tomatoes and spinach, simmer 15 min.","Blend smooth.","Toss with very soft pasta."], storage:"Sauce: fridge 4 days · Freeze 2 months" },
+  { id:10, emoji:"🐟", title:"Mini Salmon Patties",               tags:["dinner","lunch","batch"],    desc:"Mild, soft, great omega-3s. Batch cook and fridge or freeze.",         time:"20 min", makes:"~14–16 patties",  ingredients:["1 can (14.75 oz) salmon, drained","1 egg","3 tbsp breadcrumbs","2 tbsp plain Greek yogurt","1 tsp lemon juice","¼ tsp garlic powder"],                                                   steps:["Drain salmon, remove bones.","Mix all ingredients.","Form into 1.5-inch patties.","Cook in olive oil, 3–4 min per side.","Cool on paper towel."],                                                     storage:"Fridge 3 days · Freeze 1 month" },
+  { id:11, emoji:"🥩", title:"Mini Turkey & Veggie Meatballs",    tags:["dinner","lunch","batch"],    desc:"Sneaks in vegetables. Soft to gum, easy to pick up. Baked.",           time:"30 min", makes:"~20 meatballs",  ingredients:["½ lb ground turkey","¼ cup grated zucchini, squeezed dry","¼ cup grated carrot","2 tbsp breadcrumbs","1 egg","¼ tsp garlic powder"],                                                     steps:["Preheat oven to 375°F.","Grate and squeeze dry the zucchini.","Mix all ingredients.","Roll into 1-inch balls.","Bake 15–18 min.","Cool before serving."],                                            storage:"Fridge 3 days · Freeze 2 months" },
+  { id:12, emoji:"🌽", title:"Zucchini Corn Fritters",            tags:["dinner","lunch","batch"],    desc:"Light, slightly crispy outside. Squeeze the zucchini dry — key step.", time:"25 min", makes:"~12–14 fritters", ingredients:["1 medium zucchini, grated","½ cup frozen corn, thawed","1 egg","¼ cup oat flour","¼ cup shredded cheddar","¼ tsp garlic powder"],                                                   steps:["Grate zucchini, squeeze out all moisture.","Mix all ingredients.","Heat olive oil over medium.","Drop tablespoon-sized portions, flatten.","Cook 3–4 min per side.","Cool before serving."],           storage:"Fridge 3 days · Freeze 2 months" },
+  { id:13, emoji:"🐠", title:"Salmon & Sweet Potato Mash",        tags:["dinner","lunch"],            desc:"High omega-3 and vitamin A. Great for spoon-feeding.",                 time:"20 min", makes:"2–3 servings",   ingredients:["1 small salmon fillet (~3 oz)","1 medium sweet potato","1–2 tbsp whole milk","Small squeeze of lemon"],                                                                                    steps:["Microwave sweet potato 5–6 min, scoop flesh.","Bake salmon at 400°F 12–15 min.","Flake salmon, check for bones.","Mash together with milk."],                                                        storage:"Fridge 2 days · Freeze in ice cube trays" },
+  { id:25, emoji:"🍗", title:"Soft Shredded Chicken",             tags:["dinner","lunch","batch"],    desc:"Ultra-tender shredded chicken. The most versatile batch protein.",      time:"25 min", makes:"4–6 servings",   ingredients:["2 boneless skinless chicken thighs","1 cup low-sodium chicken broth","Pinch of garlic powder"],                                                                                              steps:["Place chicken in saucepan with broth.","Bring to gentle simmer.","Cook 18–20 min until cooked through.","Shred with two forks.","Cool before serving."],                                             storage:"Fridge 4 days · Freeze 2 months" },
+  { id:26, emoji:"🍛", title:"Toddler Veggie Fried Rice",         tags:["dinner","lunch","batch"],    desc:"Simple fried rice with egg and hidden veggies. Day-old rice works best.", time:"15 min", makes:"3–4 servings", ingredients:["1 cup cooked rice","1 egg","¼ cup frozen peas and carrots, thawed","1 tbsp low-sodium soy sauce","1 tsp sesame oil","1 tsp olive oil"],                                            steps:["Heat olive oil, add peas and carrots 2 min.","Scramble egg on the side.","Add rice and mix.","Add soy sauce and sesame oil.","Cook 2–3 more min.","Cool before serving."],                           storage:"Fridge 3 days" },
+  { id:27, emoji:"🥣", title:"Butternut Squash Soup",             tags:["dinner","batch"],            desc:"Velvety smooth and naturally sweet. Serve in a bowl or as a dip for toast.", time:"35 min", makes:"6–8 servings", ingredients:["1 small butternut squash, cubed","1 small onion, diced","2 cups low-sodium vegetable broth","1 tbsp olive oil","Pinch of cinnamon and nutmeg","2 tbsp whole milk"],          steps:["Cook onion in olive oil 3–4 min.","Add squash and broth, boil.","Simmer 20 min until very soft.","Blend smooth.","Stir in milk and spices.","Cool to safe temperature before serving."],              storage:"Fridge 4 days · Freeze 2 months" },
+  { id:28, emoji:"🧀", title:"Sweet Potato Mac & Cheese",         tags:["dinner","batch"],            desc:"Mac and cheese with sweet potato in the sauce for extra nutrition.",    time:"25 min", makes:"4 servings",     ingredients:["1 cup small pasta, cooked very soft","½ cup mashed sweet potato","¼ cup shredded cheddar","¼ cup whole milk","1 tsp butter"],                                                               steps:["Cook pasta until very soft, drain.","Warm milk, butter, sweet potato over low heat.","Stir in cheese until melted.","Mix in pasta.","Cool before serving."],                                          storage:"Fridge 3 days" },
+  { id:14, emoji:"🍦", title:"Greek Yogurt with Soft Fruit",      tags:["snack","breakfast"],         desc:"Easiest snack. Full-fat Greek yogurt packed with protein and fat.",    time:"2 min",  makes:"1 serving",      ingredients:["3–4 tbsp full-fat plain Greek yogurt","Soft fruit: banana, mango, or blueberries (halved)"],                                                                                              steps:["Spoon yogurt into a bowl.","Top with soft diced fruit.","Serve with a preloaded spoon."],                                                                                                             storage:"Best fresh" },
+  { id:15, emoji:"🥑", title:"Avocado Toast Strips",              tags:["snack","lunch"],             desc:"Quick and nutritious. Great for self-feeding practice.",               time:"3 min",  makes:"1 serving",      ingredients:["1 slice whole grain bread, lightly toasted","¼ ripe avocado","Squeeze of lemon"],                                                                                                         steps:["Mash avocado onto toast.","Cut into strips."],                                                                                                                                                        storage:"Best fresh" },
+  { id:16, emoji:"🍌", title:"Banana Peanut Butter Bites",        tags:["snack"],                     desc:"No cooking. Banana rounds with a tiny dot of peanut butter.",          time:"2 min",  makes:"1 serving",      ingredients:["½ banana, sliced into rounds","Tiny dot of natural peanut butter per slice"],                                                                                                          steps:["Slice banana into rounds.","Add a small dot of peanut butter on each."],                                                                                                                              storage:"Best fresh" },
+  { id:17, emoji:"⚡", title:"No-Bake Oat Energy Balls",          tags:["snack","batch"],             desc:"Roll in 10 minutes, store in the fridge all week.",                    time:"15 min + chill", makes:"~18–20 balls", ingredients:["1 cup rolled oats","⅓ cup natural peanut butter","¼ cup maple syrup","¼ cup mini chocolate chips","1 tsp vanilla"],                                                      steps:["Mix all ingredients.","Refrigerate 30 min to firm up.","Roll into 1-inch balls."],                                                                                                                   storage:"Fridge 1 week · Freeze 2 months" },
+  { id:18, emoji:"🧀", title:"Cheese & Fruit Plate",              tags:["snack"],                     desc:"The easiest no-cook snack. Soft cheese cubes and fresh fruit.",        time:"2 min",  makes:"1 serving",      ingredients:["Small cubes soft cheese (mozzarella or mild cheddar)","Soft fruit: blueberries (halved), pear, mango, or banana"],                                                                          steps:["Cut cheese into small cubes.","Halve or dice fruit.","Arrange on a plate."],                                                                                                                         storage:"Best fresh" },
+  { id:29, emoji:"🫐", title:"Smoothie Cup",                      tags:["snack","breakfast"],         desc:"Blend and serve. Great way to sneak in spinach — she won't taste it.", time:"5 min",  makes:"1–2 servings",   ingredients:["½ banana","¼ cup frozen mango or blueberries","¼ cup plain Greek yogurt","Handful baby spinach","¼ cup whole milk"],                                                                       steps:["Add all ingredients to a blender.","Blend until smooth.","Serve in a small cup."],                                                                                                                   storage:"Fridge 24 hours" },
+  { id:30, emoji:"🥕", title:"Soft Roasted Veggie Dippers",       tags:["snack","dinner"],            desc:"Roasted until tender. Dip in Greek yogurt or hummus.",                time:"25 min", makes:"2–3 servings",   ingredients:["1 carrot, sliced into sticks","1 zucchini, sliced into sticks","½ bell pepper, cut into strips","1 tbsp olive oil","Pinch of garlic powder"],                                              steps:["Preheat oven to 400°F.","Toss veg in olive oil and garlic powder.","Spread on baking sheet.","Roast 20–22 min until very soft.","Cool before serving."],                                             storage:"Fridge 3 days" },
+];
 
-  // LUNCH
-  { id:5, emoji:"🥜", title:"PB & J", tags:["lunch"], desc:"Claire's lunch staple. Thin layer of peanut butter and jam on whole grain bread. Cut into strips.", time:"2 min", makes:"1 serving", ingredients:["1 slice whole grain bread","Thin layer natural peanut butter","Thin layer no-sugar-added jam"], steps:["Spread a thin layer of peanut butter.","Add a thin layer of jam.","Cut into strips or small squares.","Serve with avocado and fruit."], storage:"Best fresh" },
-  { id:6, emoji:"🫓", title:"Cheese Quesadilla with Avocado", tags:["lunch"], desc:"Quick and easy. Soft tortilla, melted cheese, served with avocado. Cut into small strips.", time:"5 min", makes:"1 serving", ingredients:["1 small whole wheat tortilla","2 tbsp shredded cheddar","¼ ripe avocado"], steps:["Heat dry pan over medium heat.","Add cheese to half the tortilla, fold over.","Cook 1–2 min per side until golden.","Cool, cut into strips.","Serve with avocado."], storage:"Best fresh" },
-  { id:22, emoji:"🥗", title:"Avocado Egg Salad on Toast", tags:["lunch"], desc:"Mashed avocado mixed with chopped hard-boiled egg. Creamy, nutritious, and easy to eat on soft toast strips.", time:"10 min", makes:"1–2 servings", ingredients:["1 hard-boiled egg, chopped","¼ ripe avocado","Squeeze of lemon","1 slice soft whole grain bread"], steps:["Mash avocado in a bowl.","Chop hard-boiled egg finely, mix in.","Add a small squeeze of lemon.","Spread on lightly toasted bread.","Cut into strips."], storage:"Best fresh (avocado browns quickly)" },
-  { id:23, emoji:"🌮", title:"Soft Bean & Cheese Tacos", tags:["lunch","dinner"], desc:"Warm soft tortilla with mashed beans and melted cheese. Easy to roll up or serve flat and cut into strips.", time:"8 min", makes:"2 small tacos", ingredients:["2 small soft corn or flour tortillas","¼ cup canned black or pinto beans, mashed","2 tbsp shredded cheddar","Pinch of cumin (optional)","Mashed avocado for serving"], steps:["Warm tortillas in a dry pan 30 sec per side.","Spread mashed beans on each, sprinkle with cheese.","Fold and heat 1 min until cheese melts.","Cool slightly, cut into strips.","Serve with mashed avocado."], storage:"Best fresh" },
-  { id:24, emoji:"🐟", title:"Tuna Salad Bites", tags:["lunch","snack"], desc:"Mild canned tuna mixed with Greek yogurt instead of mayo. Serve on crackers or toast strips — easy finger food.", time:"5 min", makes:"1–2 servings", ingredients:["1 small can (2.5 oz) light tuna in water, drained","1 tbsp plain Greek yogurt","Squeeze of lemon","Soft crackers or toast strips"], steps:["Drain tuna well and flake into a bowl.","Mix in Greek yogurt and lemon.","Spoon onto crackers or toast strips.","Keep portions small."], storage:"Tuna mix fridge 2 days" },
-
-  // DINNER
-  { id:7, emoji:"🧇", title:"Sweet Potato Bean Broccoli Muffins", tags:["dinner","lunch","batch"], desc:"One of Claire's dinner staples. Packed with protein, fiber, and veggies. Make a big batch Sunday.", time:"35 min", makes:"~24 mini muffins", ingredients:["1 cup mashed sweet potato","½ cup canned beans, mashed","½ cup broccoli, steamed & finely chopped","2 eggs","¼ cup oat flour","¼ tsp garlic powder"], steps:["Preheat oven to 375°F. Grease mini muffin tin.","Mash sweet potato and beans.","Mix in broccoli, eggs, oat flour, garlic powder.","Fill cups ¾ full.","Bake 18–22 min until golden.","Cool 5 min in tin."], storage:"Fridge 4 days · Freeze 2 months" },
-  { id:8, emoji:"🫐", title:"Quinoa Broccoli Cheese Muffins", tags:["dinner","lunch","batch"], desc:"Claire's other dinner staple. Quinoa is a complete protein, cheese binds it all together.", time:"35 min", makes:"~20–24 muffins", ingredients:["1 cup cooked quinoa","½ cup broccoli, steamed & chopped","½ cup shredded cheddar","2 eggs","2 tbsp whole milk","¼ tsp garlic powder"], steps:["Preheat oven to 375°F. Grease mini muffin tin.","Whisk eggs and milk, mix in all ingredients.","Fill cups ¾ full, press down lightly.","Bake 20–25 min until golden.","Cool 5 min before removing."], storage:"Fridge 4 days · Freeze 2 months" },
-  { id:9, emoji:"🍝", title:"Pasta with Hidden Veggie Sauce", tags:["dinner","batch"], desc:"Tomato sauce blended smooth with carrots, zucchini, and spinach. Freeze sauce in ice cube trays.", time:"30 min", makes:"4–6 servings", ingredients:["1 can (14 oz) crushed tomatoes","1 medium carrot, chopped","1 small zucchini, chopped","1 large handful baby spinach","2 cloves garlic","1 tbsp olive oil","Short pasta, cooked very soft"], steps:["Cook garlic in olive oil 1 min.","Add carrot and zucchini, cook 5 min.","Add tomatoes and spinach, simmer 15 min.","Blend smooth.","Toss with very soft pasta."], storage:"Sauce: fridge 4 days · Freeze 2 months" },
-  { id:10, emoji:"🐟", title:"Mini Salmon Patties", tags:["dinner","lunch","batch"], desc:"Mild flavor, soft texture, great omega-3s. Make a batch and fridge or freeze through the week.", time:"20 min", makes:"~14–16 patties", ingredients:["1 can (14.75 oz) salmon, drained","1 egg","3 tbsp breadcrumbs or oat flour","2 tbsp plain Greek yogurt","1 tsp lemon juice","¼ tsp garlic powder"], steps:["Drain salmon, remove skin and bones.","Mix all ingredients.","Form into small 1.5-inch patties.","Cook in olive oil over medium, 3–4 min per side.","Cool on paper towel."], storage:"Fridge 3 days · Freeze 1 month" },
-  { id:11, emoji:"🥩", title:"Mini Turkey & Veggie Meatballs", tags:["dinner","lunch","batch"], desc:"Great way to sneak in vegetables. Soft enough to gum, easy to pick up. Baked — no pan to watch.", time:"30 min", makes:"~20 meatballs", ingredients:["½ lb ground turkey or beef","¼ cup grated zucchini (squeezed dry)","¼ cup grated carrot","2 tbsp breadcrumbs","1 egg","¼ tsp garlic powder"], steps:["Preheat oven to 375°F.","Grate and squeeze dry the zucchini.","Mix all ingredients until just combined.","Roll into 1-inch balls.","Bake 15–18 min until cooked through.","Cool before serving."], storage:"Fridge 3 days · Freeze 2 months" },
-  { id:12, emoji:"🌽", title:"Zucchini Corn Fritters", tags:["dinner","lunch","batch"], desc:"Light, soft, slightly crispy outside. A good texture change from muffins. Squeeze the zucchini dry!", time:"25 min", makes:"~12–14 fritters", ingredients:["1 medium zucchini, grated","½ cup frozen corn, thawed","1 egg","¼ cup flour or oat flour","¼ cup shredded cheddar","¼ tsp garlic powder"], steps:["Grate zucchini and squeeze out all moisture.","Mix all ingredients.","Heat thin layer of olive oil over medium.","Drop heaping tablespoons, flatten slightly.","Cook 3–4 min per side until golden.","Cool before serving."], storage:"Fridge 3 days · Freeze 2 months" },
-  { id:13, emoji:"🐠", title:"Salmon & Sweet Potato Mash", tags:["dinner","lunch"], desc:"High in omega-3s and vitamin A. Great for spoon-feeding or preloaded spoon practice.", time:"20 min", makes:"2–3 servings", ingredients:["1 small salmon fillet (~3 oz)","1 medium sweet potato","1–2 tbsp whole milk","Small squeeze of lemon (optional)"], steps:["Microwave sweet potato 5–6 min, scoop flesh.","Bake salmon at 400°F 12–15 min until flaky.","Flake salmon, check for bones.","Mash salmon and sweet potato together.","Add milk to reach soft consistency."], storage:"Fridge 2 days · Freeze in ice cube trays" },
-  { id:25, emoji:"🍗", title:"Soft Shredded Chicken", tags:["dinner","lunch","batch"], desc:"Simple shredded chicken cooked until ultra-tender. Mix into pasta, serve with veggies, or add to quesadillas. The most versatile batch protein.", time:"25 min", makes:"4–6 servings", ingredients:["2 boneless skinless chicken thighs (thighs stay more tender than breasts)","1 cup low-sodium chicken broth or water","Pinch of garlic powder"], steps:["Place chicken in a small saucepan with broth.","Bring to a gentle simmer over medium heat.","Cook 18–20 min until cooked through.","Remove and shred with two forks — it should pull apart easily.","Cool before serving. Mix into pasta, rice, or serve alongside soft veg."], storage:"Fridge 4 days · Freeze 2 months" },
-  { id:26, emoji:"🍛", title:"Toddler Veggie Fried Rice", tags:["dinner","lunch","batch"], desc:"Simple fried rice with egg and hidden veggies. Use leftover rice — day-old rice works best.", time:"15 min", makes:"3–4 servings", ingredients:["1 cup cooked rice (day-old is best)","1 egg","¼ cup frozen peas and carrots, thawed","1 tbsp low-sodium soy sauce or coconut aminos","1 tsp sesame oil (optional)","1 tsp olive oil"], steps:["Heat olive oil in a pan over medium heat.","Add peas and carrots, cook 2 min.","Push veg to one side, scramble egg on the other side.","Add rice and mix everything together.","Add soy sauce and sesame oil, stir well.","Cook 2–3 min until heated through.","Cool before serving."], storage:"Fridge 3 days" },
-  { id:27, emoji:"🥣", title:"Butternut Squash Soup", tags:["dinner","batch"], desc:"Velvety smooth and naturally sweet — most toddlers love it. Serve in a bowl or as a soft dip for toast strips.", time:"35 min", makes:"6–8 servings", ingredients:["1 small butternut squash, cubed (or 1 bag frozen cubed squash)","1 small onion, diced","2 cups low-sodium vegetable or chicken broth","1 tbsp olive oil","Pinch of cinnamon and nutmeg","2 tbsp full-fat coconut milk or whole milk"], steps:["Heat olive oil over medium, cook onion 3–4 min until soft.","Add squash and broth, bring to a boil.","Reduce heat, simmer 20 min until squash is very soft.","Blend smooth with an immersion blender.","Stir in milk and spices.","Serve warm — cool to a safe temperature first."], storage:"Fridge 4 days · Freeze 2 months" },
-  { id:28, emoji:"🧀", title:"Sweet Potato Mac & Cheese", tags:["dinner","batch"], desc:"Mac and cheese with mashed sweet potato stirred into the sauce for extra nutrition. Creamy, mild, and toddler-approved.", time:"25 min", makes:"4 servings", ingredients:["1 cup small pasta (ditalini or elbow), cooked very soft","½ cup mashed sweet potato","¼ cup shredded cheddar","¼ cup whole milk","1 tsp butter"], steps:["Cook pasta until very soft, drain.","Warm milk, butter, and sweet potato in a saucepan over low heat.","Stir in cheese until melted and smooth.","Mix in pasta and stir to coat.","Cool before serving."], storage:"Fridge 3 days (add a splash of milk when reheating)" },
-
-  // SNACKS
-  { id:14, emoji:"🍦", title:"Greek Yogurt with Soft Fruit", tags:["snack","breakfast"], desc:"The easiest snack. Full-fat plain Greek yogurt packed with protein and fat. Top with any soft fruit.", time:"2 min", makes:"1 serving", ingredients:["3–4 tbsp full-fat plain Greek yogurt","Soft fruit: banana, mango, blueberries (halved), or pear"], steps:["Spoon yogurt into a small bowl.","Top with soft diced fruit.","Serve with a preloaded spoon."], storage:"Best fresh" },
-  { id:15, emoji:"🥑", title:"Avocado Toast Strips", tags:["snack","lunch"], desc:"Quick and nutritious. Avocado is one of the best fats for brain development. Great for self-feeding.", time:"3 min", makes:"1 serving", ingredients:["1 slice whole grain bread, lightly toasted","¼ ripe avocado","Squeeze of lemon (optional)"], steps:["Mash avocado onto toast.","Cut into strips.","Serve as finger food."], storage:"Best fresh" },
-  { id:16, emoji:"🍌", title:"Banana Peanut Butter Bites", tags:["snack"], desc:"No cooking required. Banana rounds with a tiny dot of peanut butter. Perfect quick snack.", time:"2 min", makes:"1 serving", ingredients:["½ banana, sliced into rounds","Tiny dot of natural peanut butter on each slice"], steps:["Slice banana into rounds.","Add a very small dot of peanut butter on top.","Serve immediately."], storage:"Best fresh" },
-  { id:17, emoji:"⚡", title:"No-Bake Oat Energy Balls", tags:["snack","batch"], desc:"Roll up in 10 minutes, store in the fridge all week. Great mid-morning or afternoon snack.", time:"15 min + chill", makes:"~18–20 balls", ingredients:["1 cup rolled oats","⅓ cup natural peanut or almond butter","¼ cup maple syrup","¼ cup mini chocolate chips or raisins (optional)","1 tsp vanilla"], steps:["Mix all ingredients until combined.","Refrigerate 30 min to firm up.","Roll into 1-inch balls.","Store in the fridge."], storage:"Fridge 1 week · Freeze 2 months" },
-  { id:18, emoji:"🧀", title:"Cheese & Fruit Plate", tags:["snack"], desc:"The easiest no-cook snack. Soft cheese cubes and whatever fruit is in the fridge.", time:"2 min", makes:"1 serving", ingredients:["Small cubes soft cheese (mozzarella, mild cheddar)","Soft fruit: blueberries (halved), pear, mango, banana"], steps:["Cut cheese into small cubes.","Halve or dice fruit to safe size.","Arrange on a plate."], storage:"Best fresh" },
-  { id:29, emoji:"🫐", title:"Smoothie Pouch or Cup", tags:["snack","breakfast"], desc:"Blend and serve in a reusable pouch or small cup. Great way to sneak in spinach — she won't taste it.", time:"5 min", makes:"1–2 servings", ingredients:["½ banana","¼ cup frozen mango or blueberries","¼ cup plain Greek yogurt","Handful baby spinach","¼ cup whole milk"], steps:["Add all ingredients to a blender.","Blend until smooth.","Pour into a small cup or reusable pouch.","Serve immediately or refrigerate up to 24 hours."], storage:"Fridge 24 hours (shake before serving)" },
-  { id:30, emoji:"🥕", title:"Soft Roasted Veggie Dippers", tags:["snack","dinner"], desc:"Roasted until tender enough to squish between two fingers. Great for dipping into hummus or Greek yogurt.", time:"25 min", makes:"2–3 servings", ingredients:["1 carrot, sliced into sticks or coins","1 zucchini, sliced into sticks","½ bell pepper, cut into strips","1 tbsp olive oil","Pinch of garlic powder"], steps:["Preheat oven to 400°F.","Toss veg in olive oil and garlic powder.","Spread on a baking sheet.","Roast 20–22 min until very soft and slightly caramelized.","Cool before serving.","Serve with a small side of plain Greek yogurt or hummus."], storage:"Fridge 3 days (re-warm in microwave)" },
+// ── SLOTS ─────────────────────────────────────────────
+const DAYS  = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"];
+const SLOTS = [
+  { key:"breakfast",     label:"Breakfast",    snack:false },
+  { key:"morningSnack",  label:"AM Snack",     snack:true  },
+  { key:"lunch",         label:"Lunch",        snack:false },
+  { key:"afternoonSnack",label:"PM Snack",     snack:true  },
+  { key:"dinner",        label:"Dinner",       snack:false },
 ];
 
 // ── SUGGESTED WEEK ────────────────────────────────────
-// Uses recipe IDs — a balanced default week
 const SUGGESTED_WEEK = {
-  Monday:    { breakfast:1,  lunch:5,  dinner:7  },
-  Tuesday:   { breakfast:2,  lunch:6,  dinner:8  },
-  Wednesday: { breakfast:19, lunch:22, dinner:25 },
-  Thursday:  { breakfast:20, lunch:23, dinner:11 },
-  Friday:    { breakfast:3,  lunch:24, dinner:10 },
-  Saturday:  { breakfast:4,  lunch:6,  dinner:28 },
-  Sunday:    { breakfast:21, lunch:5,  dinner:9  },
+  Monday:    { breakfast:1,  morningSnack:16, lunch:5,  afternoonSnack:18, dinner:7  },
+  Tuesday:   { breakfast:2,  morningSnack:29, lunch:6,  afternoonSnack:14, dinner:8  },
+  Wednesday: { breakfast:19, morningSnack:21, lunch:22, afternoonSnack:15, dinner:25 },
+  Thursday:  { breakfast:20, morningSnack:16, lunch:23, afternoonSnack:18, dinner:11 },
+  Friday:    { breakfast:3,  morningSnack:29, lunch:24, afternoonSnack:14, dinner:10 },
+  Saturday:  { breakfast:4,  morningSnack:21, lunch:6,  afternoonSnack:17, dinner:28 },
+  Sunday:    { breakfast:1,  morningSnack:15, lunch:5,  afternoonSnack:16, dinner:9  },
 };
-
-const DAYS = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"];
-const MEALS = ["breakfast","lunch","dinner"];
 
 // ── STATE ─────────────────────────────────────────────
 let activeFilter = "all";
-let searchTerm = "";
-let savedIds = JSON.parse(localStorage.getItem("claire-saved") || "[]");
-let planner = JSON.parse(localStorage.getItem("claire-planner") || "{}");
-let customRecipes = JSON.parse(localStorage.getItem("claire-custom") || "[]");
-let pendingSlot = null;
+let searchTerm   = "";
+let savedIds     = JSON.parse(localStorage.getItem("claire-saved")     || "[]");
+let planner      = JSON.parse(localStorage.getItem("claire-planner")   || "{}");
+let customRecipes= JSON.parse(localStorage.getItem("claire-custom")    || "[]");
+let inventory    = JSON.parse(localStorage.getItem("claire-inventory") || "{}");
+let templates    = JSON.parse(localStorage.getItem("claire-templates") || "[]");
+let ratings      = JSON.parse(localStorage.getItem("claire-ratings")   || "{}");
+let pendingSlot  = null;
+let pickerAll    = [];
 
 // ── HELPERS ───────────────────────────────────────────
-function saveLocal() { localStorage.setItem("claire-saved", JSON.stringify(savedIds)); localStorage.setItem("claire-planner", JSON.stringify(planner)); }
-function saveCustomLocal() { localStorage.setItem("claire-custom", JSON.stringify(customRecipes)); }
-function allRecipes() { return [...recipes, ...customRecipes]; }
-function isSaved(id) { return savedIds.includes(id); }
-function getTags(r) { return r.tags.map(t => `<span class="tag tag-${t}">${t}</span>`).join(""); }
+const save      = () => { localStorage.setItem("claire-saved",    JSON.stringify(savedIds));    localStorage.setItem("claire-planner",  JSON.stringify(planner)); };
+const saveCustom= () =>   localStorage.setItem("claire-custom",   JSON.stringify(customRecipes));
+const saveInv   = () =>   localStorage.setItem("claire-inventory",JSON.stringify(inventory));
+const saveTpl   = () =>   localStorage.setItem("claire-templates",JSON.stringify(templates));
+const saveRat   = () =>   localStorage.setItem("claire-ratings",  JSON.stringify(ratings));
+const allR      = ()  => [...recipes, ...customRecipes];
+const isSaved   = id  => savedIds.includes(id);
+const findR     = id  => allR().find(r => r.id === id);
+function getTags(r) { return r.tags.map(t=>`<span class="tag tag-${t}">${t}</span>`).join(""); }
 
+// ── RATINGS ───────────────────────────────────────────
+function getRating(id) { return ratings[id] || { stars: 0, count: 0, lastCooked: null }; }
+
+function setRating(id, stars) {
+  const r = getRating(id);
+  ratings[id] = { stars, count: r.count + 1, lastCooked: new Date().toISOString().split("T")[0] };
+  saveRat();
+  renderBrowse(); renderCookbook();
+}
+
+function markCooked(id) {
+  const r = getRating(id);
+  ratings[id] = { ...r, lastCooked: new Date().toISOString().split("T")[0] };
+  saveRat();
+}
+
+function starsHTML(id, small=false) {
+  const r = getRating(id);
+  const sz = small ? 13 : 16;
+  return `<div class="star-row" style="font-size:${sz}px">
+    ${[1,2,3,4,5].map(n => `<span class="star ${r.stars>=n?'filled':''}" onclick="setRating(${id},${n})" title="Rate ${n} star">★</span>`).join("")}
+  </div>${r.lastCooked ? `<span class="last-cooked">Last cooked ${r.lastCooked}</span>` : ''}`;
+}
+
+// ── CARD ──────────────────────────────────────────────
 function buildCard(r, inCookbook=false) {
   const saved = isSaved(r.id);
   const saveBtn = inCookbook
-    ? `<button class="btn-saved" onclick="unsave(${r.id})">✓ Saved — Remove</button>`
+    ? `<button class="btn-saved" onclick="unsaveR(${r.id})">✓ Saved — Remove</button>`
     : saved
-      ? `<button class="btn-saved" onclick="unsave(${r.id})">✓ Saved</button>`
-      : `<button class="btn-save" onclick="save(${r.id})">+ Save to Cookbook</button>`;
-  const suffix = inCookbook ? '-cb' : '';
+      ? `<button class="btn-saved" onclick="unsaveR(${r.id})">✓ Saved</button>`
+      : `<button class="btn-save" onclick="saveR(${r.id})">+ Save to Cookbook</button>`;
+  const sfx = inCookbook ? '-cb' : '';
   return `
     <div class="card">
       <div class="card-header"><span class="card-emoji">${r.emoji}</span><div><div class="card-title">${r.title}</div><div class="card-tags">${getTags(r)}</div></div></div>
-      <div class="card-body"><p class="card-desc">${r.desc}</p><div class="card-meta"><span>⏱ ${r.time}</span><span>🍽 ${r.makes}</span></div></div>
+      <div class="card-body">
+        <p class="card-desc">${r.desc}</p>
+        <div class="card-meta"><span>⏱ ${r.time}</span><span>🍽 ${r.makes}</span></div>
+        <div class="card-meta" style="margin-top:6px">${starsHTML(r.id)}</div>
+      </div>
       <div class="card-actions">
-        <button class="btn-expand" onclick="toggleDetail('${r.id}${suffix}')">See recipe ↓</button>
+        <button class="btn-expand" onclick="toggleDetail('${r.id}${sfx}')">See recipe ↓</button>
         ${saveBtn}
       </div>
-      <div class="recipe-detail" id="detail-${r.id}${suffix}">
-        <h4>Ingredients</h4>
-        <ul>${r.ingredients.map(i=>`<li>${i}</li>`).join("")}</ul>
-        <h4>Steps</h4>
-        <ol>${r.steps.map(s=>`<li>${s}</li>`).join("")}</ol>
+      <div class="recipe-detail" id="detail-${r.id}${sfx}">
+        <h4>Ingredients</h4><ul>${r.ingredients.map(i=>`<li>${i}</li>`).join("")}</ul>
+        <h4>Steps</h4><ol>${r.steps.map(s=>`<li>${s}</li>`).join("")}</ol>
         <div class="storage-box">📦 ${r.storage}</div>
       </div>
     </div>`;
@@ -453,130 +543,316 @@ function toggleDetail(key) {
   if (!el) return;
   const btn = el.previousElementSibling.querySelector('.btn-expand');
   const open = el.classList.toggle("open");
-  btn.textContent = open ? "Hide recipe ↑" : "See recipe ↓";
+  if (btn) btn.textContent = open ? "Hide recipe ↑" : "See recipe ↓";
 }
 
 // ── BROWSE ────────────────────────────────────────────
 function renderBrowse() {
   const grid = document.getElementById("grid");
-  const filtered = allRecipes().filter(r => {
+  const filtered = allR().filter(r => {
     const mf = activeFilter === "all" || r.tags.includes(activeFilter);
     const ms = !searchTerm || r.title.toLowerCase().includes(searchTerm) || r.desc.toLowerCase().includes(searchTerm) || r.ingredients.join(" ").toLowerCase().includes(searchTerm);
     return mf && ms;
   });
-  if (!filtered.length) { grid.innerHTML = `<div class="empty"><span class="empty-emoji">🥺</span><p>No recipes found — try a different search!</p></div>`; return; }
-  grid.innerHTML = filtered.map(r => buildCard(r)).join("");
+  grid.innerHTML = filtered.length
+    ? filtered.map(r => buildCard(r)).join("")
+    : `<div class="empty"><span class="empty-emoji">🥺</span><p>No recipes found.</p></div>`;
 }
 
 // ── COOKBOOK ──────────────────────────────────────────
 function renderCookbook() {
   const grid = document.getElementById("cookbook-grid");
-  const saved = allRecipes().filter(r => savedIds.includes(r.id));
-  if (!saved.length) { grid.innerHTML = `<div class="empty"><span class="empty-emoji">📖</span><p>No saved recipes yet.<br>Browse and tap <strong>+ Save to Cookbook</strong>.</p></div>`; return; }
-  grid.innerHTML = saved.map(r => buildCard(r, true)).join("");
+  const saved = allR().filter(r => savedIds.includes(r.id));
+  grid.innerHTML = saved.length
+    ? saved.map(r => buildCard(r, true)).join("")
+    : `<div class="empty"><span class="empty-emoji">📖</span><p>No saved recipes yet.<br>Browse and tap <strong>+ Save to Cookbook</strong>.</p></div>`;
 }
 
-function save(id) { if (!savedIds.includes(id)) { savedIds.push(id); saveLocal(); } renderBrowse(); renderCookbook(); }
-function unsave(id) { savedIds = savedIds.filter(i => i !== id); saveLocal(); renderBrowse(); renderCookbook(); }
+function saveR(id)   { if (!savedIds.includes(id)) { savedIds.push(id); save(); } renderBrowse(); renderCookbook(); }
+function unsaveR(id) { savedIds = savedIds.filter(i => i !== id); save(); renderBrowse(); renderCookbook(); }
 
 // ── PLANNER ───────────────────────────────────────────
 function renderPlanner() {
-  const grid = document.getElementById("week-grid");
-  grid.innerHTML = DAYS.map(day => `
+  document.getElementById("week-grid").innerHTML = DAYS.map(day => `
     <div class="day-card">
       <div class="day-name">${day}</div>
-      ${MEALS.map(meal => {
-        const val = planner[day] && planner[day][meal];
-        const recipe = val ? allRecipes().find(r => r.id === val) : null;
-        return `<div class="meal-slot">
-          <span class="meal-label">${meal.charAt(0).toUpperCase()+meal.slice(1)}</span>
-          <span class="meal-value${recipe?'':' empty-slot'}">${recipe ? recipe.emoji+' '+recipe.title : 'tap to add'}</span>
-          <button class="slot-btn" onclick="openPicker('${day}','${meal}')">${recipe ? '✏️' : '➕'}</button>
+      ${SLOTS.map(slot => {
+        const id = planner[day]?.[slot.key];
+        const recipe = id ? findR(id) : null;
+        return `<div class="meal-slot${slot.snack?' snack-slot':''}">
+          <span class="meal-label${slot.snack?' snack-label':''}">${slot.label}</span>
+          <span class="meal-value${recipe?'':' empty-slot'}">${recipe ? recipe.emoji+' '+recipe.title : 'tap +'}</span>
+          <button class="slot-btn" onclick="openPicker('${day}','${slot.key}',${slot.snack})">${recipe?'✏️':'➕'}</button>
         </div>`;
       }).join("")}
     </div>`).join("");
 }
 
 function loadSuggestedWeek() {
-  const hasData = Object.keys(planner).length > 0;
-  if (hasData && !confirm("Replace the current plan with a suggested week?")) return;
-  planner = JSON.parse(JSON.stringify(SUGGESTED_WEEK));
-  saveLocal();
-  renderPlanner();
-}
-
-function openPicker(day, meal) {
-  pendingSlot = { day, meal };
-  document.getElementById("picker-title").textContent = `${day} — ${meal.charAt(0).toUpperCase()+meal.slice(1)}`;
-  const list = document.getElementById("picker-list");
-  const clearItem = planner[day] && planner[day][meal]
-    ? `<div class="modal-item" onclick="assignSlot(null)" style="color:var(--text-light)">🗑 Clear this slot</div>` : "";
-  list.innerHTML = clearItem + allRecipes().map(r =>
-    `<div class="modal-item" onclick="assignSlot(${r.id})">${r.emoji} ${r.title}</div>`).join("");
-  document.getElementById("picker-modal").classList.add("open");
-}
-
-function assignSlot(id) {
-  if (pendingSlot) {
-    const { day, meal } = pendingSlot;
-    if (!planner[day]) planner[day] = {};
-    if (id === null) delete planner[day][meal];
-    else planner[day][meal] = id;
-    saveLocal();
-    renderPlanner();
-  }
-  closeModal("picker-modal");
+  if (Object.keys(planner).length > 0 && !confirm("Replace current plan with a suggested week?")) return;
+  planner = JSON.parse(JSON.stringify(SUGGESTED_WEEK)); save(); renderPlanner();
 }
 
 function clearPlanner() {
-  if (confirm("Clear the whole week?")) { planner = {}; saveLocal(); renderPlanner(); }
+  if (confirm("Clear the whole week?")) { planner = {}; save(); renderPlanner(); }
+}
+
+// ── PICKER ────────────────────────────────────────────
+function openPicker(day, slotKey, snackOnly) {
+  pendingSlot = { day, slotKey };
+  document.getElementById("picker-title").textContent = `${day} — ${SLOTS.find(s=>s.key===slotKey).label}`;
+  document.getElementById("picker-search").value = "";
+  const source = snackOnly ? allR().filter(r => r.tags.includes("snack")) : allR();
+  pickerAll = source;
+  renderPickerList(source);
+  document.getElementById("picker-modal").classList.add("open");
+}
+
+function renderPickerList(list) {
+  const hasClear = planner[pendingSlot?.day]?.[pendingSlot?.slotKey];
+  document.getElementById("picker-list").innerHTML =
+    (hasClear ? `<div class="modal-item" onclick="assignSlot(null)" style="color:var(--text-light)">🗑 Clear this slot</div>` : "") +
+    list.map(r => `<div class="modal-item" onclick="assignSlot(${r.id})">${r.emoji} ${r.title}</div>`).join("");
+}
+
+function filterPicker() {
+  const q = document.getElementById("picker-search").value.toLowerCase();
+  renderPickerList(q ? pickerAll.filter(r => r.title.toLowerCase().includes(q)) : pickerAll);
+}
+
+function assignSlot(id) {
+  const { day, slotKey } = pendingSlot;
+  if (!planner[day]) planner[day] = {};
+  if (id === null) delete planner[day][slotKey]; else planner[day][slotKey] = id;
+  save(); renderPlanner();
+  closeModal("picker-modal");
+}
+
+// ── TEMPLATES ─────────────────────────────────────────
+function openSaveTemplate() {
+  if (!Object.keys(planner).length) { alert("Plan the week first, then save it as a template."); return; }
+  document.getElementById("template-name-input").value = "";
+  document.getElementById("save-template-modal").classList.add("open");
+}
+
+function saveTemplate() {
+  const name = document.getElementById("template-name-input").value.trim();
+  if (!name) { alert("Please give the template a name."); return; }
+  templates.unshift({ id: Date.now(), name, plan: JSON.parse(JSON.stringify(planner)), created: new Date().toISOString().split("T")[0] });
+  saveTpl();
+  closeModal("save-template-modal");
+  alert(`Template "${name}" saved!`);
+}
+
+function openLoadTemplate() {
+  const list = document.getElementById("template-list");
+  if (!templates.length) { list.innerHTML = `<p style="font-size:0.88rem;color:var(--text-light);font-weight:600;padding:10px 0">No templates saved yet. Plan a week and save it as a template first.</p>`; }
+  else list.innerHTML = templates.map(t => `
+    <div class="template-item">
+      <div class="template-item-top"><span class="template-name">${t.name}</span><span class="template-date">${t.created}</span></div>
+      <div class="template-actions">
+        <button class="btn-tpl-use" onclick="loadTemplate(${t.id})">✓ Use this week</button>
+        <button class="btn-tpl-del" onclick="deleteTemplate(${t.id})">🗑</button>
+      </div>
+    </div>`).join("");
+  document.getElementById("load-template-modal").classList.add("open");
+}
+
+function loadTemplate(id) {
+  const tpl = templates.find(t => t.id === id);
+  if (!tpl) return;
+  if (Object.keys(planner).length && !confirm(`Replace current plan with "${tpl.name}"?`)) return;
+  planner = JSON.parse(JSON.stringify(tpl.plan)); save(); renderPlanner();
+  closeModal("load-template-modal");
+}
+
+function deleteTemplate(id) {
+  if (!confirm("Delete this template?")) return;
+  templates = templates.filter(t => t.id !== id); saveTpl(); openLoadTemplate();
+}
+
+// ── SHOPPING / INGREDIENT AGGREGATOR ─────────────────
+const CATEGORIES = {
+  "Produce":     ["banana","apple","avocado","zucchini","broccoli","carrot","spinach","potato","squash","corn","peas","onion","garlic","lemon","mango","berry","blueberr","strawberr","pear","peach","pepper","tomato","fruit","kale","beet"],
+  "Dairy & Eggs":["egg","milk","cheese","yogurt","butter","cottage","ricotta","cream","cheddar","mozzarella","parmesan"],
+  "Proteins":    ["chicken","turkey","beef","salmon","tuna","fish","bean","lentil","quinoa","tofu","shrimp","pork"],
+  "Grains & Pantry":["flour","oat","pasta","rice","oil","soy","breadcrumb","vanilla","cinnamon","maple","vinegar","broth","can","jar","cracker","tortilla","bread","cumin","garlic powder","nutmeg"],
+  "Other":       [],
+};
+
+function categorize(name) {
+  const n = name.toLowerCase();
+  for (const [cat, words] of Object.entries(CATEGORIES)) {
+    if (cat === "Other") continue;
+    if (words.some(w => n.includes(w))) return cat;
+  }
+  return "Other";
+}
+
+// Very simple ingredient parser — extracts qty string and name
+function parseIng(str) {
+  // Match optional leading number/fraction + optional unit + rest
+  const m = str.match(/^([\d\/\.\s½¼¾⅓⅔]+)?\s*(cups?|tbsps?|tsps?|lbs?|oz|g|kg|ml|l|cloves?|slices?|cans?|bunches?|heads?|pieces?|pkgs?|handfuls?|pinch(?:es)?|splashs?|drops?)\.?\s+(.*)/i);
+  if (m) return { qty: (m[1]||"").trim(), unit: m[2].trim(), name: m[3].trim() };
+  // fallback: try to strip leading number
+  const m2 = str.match(/^([\d\/\.\s½¼¾⅓⅔]+)\s+(.*)/);
+  if (m2) return { qty: (m2[1]||"").trim(), unit: "", name: m2[2].trim() };
+  return { qty: "", unit: "", name: str.trim() };
+}
+
+function normalizeName(name) {
+  return name.toLowerCase()
+    .replace(/\(.*?\)/g, "")          // remove parentheticals
+    .replace(/,.*$/, "")              // remove after comma
+    .replace(/finely |very |lightly |drained |rinsed |mashed |chopped |diced |grated |sliced |cubed |steamed |cooked |softened |thawed |squeezed dry/gi, "")
+    .replace(/\s+/g, " ").trim();
+}
+
+function renderShoppingChecklist() {
+  const container = document.getElementById("ingredient-checklist");
+  // Collect all ingredients from this week's plan
+  const recipeUsage = {}; // recipeId → count of times used this week
+  DAYS.forEach(day => SLOTS.forEach(slot => {
+    const id = planner[day]?.[slot.key];
+    if (id) recipeUsage[id] = (recipeUsage[id] || 0) + 1;
+  }));
+
+  if (!Object.keys(recipeUsage).length) {
+    container.innerHTML = `<p style="color:var(--text-light);font-weight:600;font-size:0.9rem;padding:20px 0">Plan your week first, then come back here to see your ingredient list.</p>`;
+    return;
+  }
+
+  // Aggregate ingredients
+  const agg = {}; // normalizedName → { display, qty, unit, recipes: Set, multiUse }
+  Object.entries(recipeUsage).forEach(([id, count]) => {
+    const r = findR(Number(id));
+    if (!r) return;
+    r.ingredients.forEach(ing => {
+      const { name } = parseIng(ing);
+      const key = normalizeName(name);
+      if (!key) return;
+      if (!agg[key]) agg[key] = { display: name, raw: [ing], recipes: new Set(), count: 0 };
+      agg[key].raw.push(...Array(count).fill(ing));
+      agg[key].recipes.add(r.title);
+      agg[key].count += count;
+    });
+  });
+
+  // Group by category
+  const byCategory = {};
+  Object.entries(agg).forEach(([key, data]) => {
+    const cat = categorize(key);
+    if (!byCategory[cat]) byCategory[cat] = [];
+    byCategory[cat].push({ key, ...data });
+  });
+
+  const catOrder = ["Produce","Dairy & Eggs","Proteins","Grains & Pantry","Other"];
+  let html = "";
+  catOrder.forEach(cat => {
+    const items = byCategory[cat];
+    if (!items || !items.length) return;
+    html += `<div class="ingredient-section"><h3>${cat}</h3>`;
+    items.sort((a,b) => a.key.localeCompare(b.key)).forEach(item => {
+      const state = inventory[item.key] || "";
+      const multi = item.recipes.size > 1 ? `<span class="multi-use">✦ ${item.recipes.size} recipes</span>` : "";
+      html += `<div class="ingredient-row">
+        <span class="ingredient-name">${item.display}${multi}</span>
+        <span class="ingredient-qty">${item.raw.length > 1 ? `×${item.raw.length}` : ''}</span>
+        <div class="ingredient-check">
+          <button class="check-btn ${state==='have'?'have':''}" onclick="setInventory('${item.key}','have')">✓ Have it</button>
+          <button class="check-btn ${state==='need'?'need':''}" onclick="setInventory('${item.key}','need')">🛒 Need it</button>
+        </div>
+      </div>`;
+    });
+    html += `</div>`;
+  });
+
+  container.innerHTML = html;
+}
+
+function setInventory(key, state) {
+  inventory[key] = inventory[key] === state ? "" : state;
+  saveInv(); renderShoppingChecklist();
+}
+
+function clearInventory() {
+  inventory = {}; saveInv(); renderShoppingChecklist();
+  document.getElementById("shopping-list-out").classList.remove("open");
+}
+
+function generateShoppingList() {
+  const needed = Object.entries(inventory).filter(([,v]) => v === "need").map(([k]) => k);
+  if (!needed.length) { alert("Mark some items as 'Need it' first."); return; }
+
+  const byCategory = {};
+  needed.forEach(key => {
+    const cat = categorize(key);
+    if (!byCategory[cat]) byCategory[cat] = [];
+    byCategory[cat].push(key);
+  });
+
+  const catOrder = ["Produce","Dairy & Eggs","Proteins","Grains & Pantry","Other"];
+  let html = "";
+  catOrder.forEach(cat => {
+    const items = byCategory[cat];
+    if (!items || !items.length) return;
+    html += `<div class="list-section"><h4>${cat}</h4>`;
+    items.sort().forEach(key => {
+      html += `<div class="list-item"><div class="list-check"></div><span>${key}</span></div>`;
+    });
+    html += `</div>`;
+  });
+
+  const out = document.getElementById("shopping-list-out");
+  document.getElementById("shopping-list-items").innerHTML = html;
+  out.classList.add("open");
+  out.scrollIntoView({ behavior: "smooth" });
 }
 
 // ── CUSTOM RECIPES ────────────────────────────────────
 function saveCustomRecipe() {
   const title = document.getElementById("add-title").value.trim();
   const emoji = document.getElementById("add-emoji").value.trim() || "🍽";
-  const desc = document.getElementById("add-desc").value.trim();
-  const time = document.getElementById("add-time").value.trim() || "—";
+  const desc  = document.getElementById("add-desc").value.trim();
+  const time  = document.getElementById("add-time").value.trim() || "—";
   const makes = document.getElementById("add-makes").value.trim() || "—";
-  const ingredientRaw = document.getElementById("add-ingredients").value.trim();
-  const stepsRaw = document.getElementById("add-steps").value.trim();
+  const ingRaw= document.getElementById("add-ingredients").value.trim();
+  const stpRaw= document.getElementById("add-steps").value.trim();
   const storage = document.getElementById("add-storage").value.trim() || "—";
-  const tags = [...document.querySelectorAll(".tag-check.checked input")].map(i => i.value);
-  const err = document.getElementById("add-error");
-  if (!title) { err.textContent = "Please add a recipe name."; err.style.display = "block"; return; }
-  if (!tags.length) { err.textContent = "Please pick at least one meal type."; err.style.display = "block"; return; }
-  if (!ingredientRaw) { err.textContent = "Please add at least one ingredient."; err.style.display = "block"; return; }
-  if (!stepsRaw) { err.textContent = "Please add at least one step."; err.style.display = "block"; return; }
+  const tags  = [...document.querySelectorAll(".tag-check.checked input")].map(i => i.value);
+  const err   = document.getElementById("add-error");
+  if (!title)    { err.textContent = "Please add a recipe name."; err.style.display="block"; return; }
+  if (!tags.length){ err.textContent = "Please pick at least one meal type."; err.style.display="block"; return; }
+  if (!ingRaw)   { err.textContent = "Please add at least one ingredient."; err.style.display="block"; return; }
+  if (!stpRaw)   { err.textContent = "Please add at least one step."; err.style.display="block"; return; }
   err.style.display = "none";
   const newId = Date.now();
-  const recipe = { id: newId, emoji, title, tags, desc: desc || "Custom recipe.", time, makes, ingredients: ingredientRaw.split("\n").map(s=>s.trim()).filter(Boolean), steps: stepsRaw.split("\n").map(s=>s.trim()).filter(Boolean), storage, custom: true };
+  const recipe = { id:newId, emoji, title, tags, desc:desc||"Custom recipe.", time, makes, ingredients:ingRaw.split("\n").map(s=>s.trim()).filter(Boolean), steps:stpRaw.split("\n").map(s=>s.trim()).filter(Boolean), storage, custom:true };
   customRecipes.push(recipe);
   if (!savedIds.includes(newId)) savedIds.push(newId);
-  saveCustomLocal(); saveLocal();
-  ["add-title","add-emoji","add-desc","add-time","add-makes","add-ingredients","add-steps","add-storage"].forEach(id => document.getElementById(id).value = "");
-  document.querySelectorAll(".tag-check").forEach(el => el.classList.remove("checked"));
+  saveCustom(); save();
+  ["add-title","add-emoji","add-desc","add-time","add-makes","add-ingredients","add-steps","add-storage"].forEach(id=>document.getElementById(id).value="");
+  document.querySelectorAll(".tag-check").forEach(el=>el.classList.remove("checked"));
   renderCustomList(); renderBrowse(); renderCookbook();
-  alert(`"${recipe.title}" saved! Find it in Recipes and your Cookbook.`);
+  alert(`"${recipe.title}" saved!`);
 }
 
 function deleteCustomRecipe(id) {
   if (!confirm("Remove this recipe?")) return;
-  customRecipes = customRecipes.filter(r => r.id !== id);
-  savedIds = savedIds.filter(i => i !== id);
-  saveCustomLocal(); saveLocal();
-  renderCustomList(); renderBrowse(); renderCookbook();
+  customRecipes = customRecipes.filter(r=>r.id!==id);
+  savedIds = savedIds.filter(i=>i!==id);
+  saveCustom(); save(); renderCustomList(); renderBrowse(); renderCookbook();
 }
 
 function renderCustomList() {
   const wrap = document.getElementById("custom-list-wrap");
   const list = document.getElementById("custom-list");
-  if (!customRecipes.length) { wrap.style.display = "none"; return; }
+  if (!customRecipes.length) { wrap.style.display="none"; return; }
   wrap.style.display = "block";
   list.innerHTML = customRecipes.map(r => `
     <div class="card">
       <div class="card-header"><span class="card-emoji">${r.emoji}</span><div><div class="card-title">${r.title}</div><div class="card-tags">${getTags(r)}</div></div></div>
-      <div class="card-body"><p class="card-desc">${r.desc}</p><div class="card-meta"><span>⏱ ${r.time}</span><span>🍽 ${r.makes}</span></div></div>
+      <div class="card-body"><p class="card-desc">${r.desc}</p></div>
       <div class="card-actions">
         <button class="btn-expand" onclick="toggleDetail('custom-${r.id}')">See recipe ↓</button>
         <button class="btn-delete" onclick="deleteCustomRecipe(${r.id})">🗑 Remove</button>
@@ -589,122 +865,96 @@ function renderCustomList() {
     </div>`).join("");
 }
 
-// ── AI MODAL ──────────────────────────────────────────
+// ── PASTE IMPORT ─────────────────────────────────────
+function importFromPaste() {
+  const raw = document.getElementById("import-paste").value.trim();
+  const err = document.getElementById("import-error");
+  const suc = document.getElementById("import-success");
+  err.style.display = "none"; suc.style.display = "none";
+  if (!raw) { err.textContent = "Paste a recipe from Claude first."; err.style.display="block"; return; }
+  const lines = raw.split("\n");
+  const data = { name:"", emoji:"🍽", meal:[], description:"", time:"", makes:"", ingredients:[], steps:[], storage:"" };
+  let section = null;
+  for (const line of lines) {
+    if (/^ingredients:/i.test(line))  { section="ingredients"; continue; }
+    if (/^steps:/i.test(line))        { section="steps";       continue; }
+    const kv = line.match(/^([A-Za-z]+):\s*(.*)$/);
+    if (kv) {
+      const k=kv[1].toLowerCase(), v=kv[2].trim();
+      section=null;
+      if (k==="name")        data.name=v;
+      else if (k==="emoji")  data.emoji=v||"🍽";
+      else if (k==="meal")   data.meal=v.split(",").map(s=>s.trim().toLowerCase()).filter(s=>["breakfast","lunch","dinner","snack","batch"].includes(s));
+      else if (k==="description") data.description=v;
+      else if (k==="time")   data.time=v;
+      else if (k==="makes")  data.makes=v;
+      else if (k==="storage") data.storage=v;
+      continue;
+    }
+    const cleaned = line.replace(/^[\-\*\d]+[\.\)]\s*/,"").trim();
+    if (cleaned && section==="ingredients") data.ingredients.push(cleaned);
+    if (cleaned && section==="steps")       data.steps.push(cleaned);
+  }
+  if (!data.name)               { err.textContent="Couldn't find a recipe name."; err.style.display="block"; return; }
+  if (!data.ingredients.length) { err.textContent="Couldn't find ingredients — make sure 'Ingredients:' is on its own line."; err.style.display="block"; return; }
+  if (!data.steps.length)       { err.textContent="Couldn't find steps — make sure 'Steps:' is on its own line."; err.style.display="block"; return; }
+  if (!data.meal.length) data.meal=["dinner"];
+  const newId = Date.now();
+  const recipe = { id:newId, emoji:data.emoji, title:data.name, tags:data.meal, desc:data.description||"Custom recipe.", time:data.time||"—", makes:data.makes||"—", ingredients:data.ingredients, steps:data.steps, storage:data.storage||"—", custom:true };
+  customRecipes.push(recipe);
+  if (!savedIds.includes(newId)) savedIds.push(newId);
+  saveCustom(); save();
+  document.getElementById("import-paste").value="";
+  suc.innerHTML=`✓ <strong>"${recipe.title}"</strong> imported! Find it in Recipes and your Cookbook.`;
+  suc.style.display="block";
+  renderCustomList(); renderBrowse(); renderCookbook();
+}
+
+// ── AI ────────────────────────────────────────────────
 function openAIModal() { document.getElementById("ai-modal").classList.add("open"); }
 function askClaude() {
-  const meal = document.getElementById("ai-meal").value;
-  const ingredient = document.getElementById("ai-ingredient").value.trim();
-  const notes = document.getElementById("ai-notes").value.trim();
-  let prompt = `I'm looking for new ${meal === 'any' ? '' : meal + ' '}recipe ideas for my 15-month-old daughter Claire. She currently eats soft foods she can pick up — things like mini muffins, scrambled eggs, banana pancakes, quesadillas, and small meatballs. `;
-  if (ingredient) prompt += `I'd love a recipe using ${ingredient}. `;
-  prompt += `I'm looking for something simple to make, ideally batch-cook friendly (can be stored in the fridge for a few days or frozen). `;
-  if (notes) prompt += `Additional notes: ${notes}. `;
-  prompt += `\n\nPlease give me 2–3 recipe ideas. For each one, format it EXACTLY like this so I can paste it into my recipe app:\n\nName: [recipe name]\nEmoji: [one emoji]\nMeal: [breakfast / lunch / dinner / snack / batch — pick all that apply, comma separated]\nDescription: [one sentence summary]\nTime: [cook time]\nMakes: [yield]\nIngredients:\n[one ingredient per line]\nSteps:\n[one step per line]\nStorage: [fridge and freeze info]\n\n---\n\nUse that exact format with those exact labels for each recipe.`;
-  window.open(`https://claude.ai/new?q=${encodeURIComponent(prompt)}`, "_blank");
+  const meal=document.getElementById("ai-meal").value;
+  const ing =document.getElementById("ai-ingredient").value.trim();
+  const notes=document.getElementById("ai-notes").value.trim();
+  let p=`I'm looking for new ${meal==="any"?"":meal+" "}recipe ideas for my 15-month-old daughter Claire. She eats soft foods she can pick up — things like mini muffins, scrambled eggs, banana pancakes, quesadillas, and small meatballs. `;
+  if (ing) p+=`I'd love a recipe using ${ing}. `;
+  p+=`Simple to make, ideally batch-cook friendly. `;
+  if (notes) p+=`Notes: ${notes}. `;
+  p+=`\n\nPlease give me 2–3 recipe ideas. For each, format it EXACTLY like this:\n\nName: [recipe name]\nEmoji: [one emoji]\nMeal: [breakfast / lunch / dinner / snack / batch — comma separated]\nDescription: [one sentence]\nTime: [cook time]\nMakes: [yield]\nIngredients:\n[one ingredient per line]\nSteps:\n[one step per line]\nStorage: [fridge/freeze info]\n\n---\n\nUse those exact labels for each recipe.`;
+  window.open(`https://claude.ai/new?q=${encodeURIComponent(p)}`,"_blank");
   closeModal("ai-modal");
 }
 
 // ── TABS ──────────────────────────────────────────────
 function switchTab(name) {
-  document.querySelectorAll(".tab").forEach(t => t.classList.remove("active"));
-  document.querySelectorAll(".panel").forEach(p => p.classList.remove("active"));
+  document.querySelectorAll(".tab").forEach(t=>t.classList.remove("active"));
+  document.querySelectorAll(".panel").forEach(p=>p.classList.remove("active"));
   document.querySelector(`.tab[data-tab="${name}"]`).classList.add("active");
   document.getElementById(`panel-${name}`).classList.add("active");
-  if (name === "cookbook") renderCookbook();
-  if (name === "planner") renderPlanner();
+  if (name==="cookbook")  renderCookbook();
+  if (name==="planner")   renderPlanner();
+  if (name==="shopping")  renderShoppingChecklist();
 }
-
-document.querySelectorAll(".tab").forEach(tab => {
-  tab.addEventListener("click", () => switchTab(tab.dataset.tab));
-});
+document.querySelectorAll(".tab").forEach(tab=>tab.addEventListener("click",()=>switchTab(tab.dataset.tab)));
 
 // ── FILTERS & SEARCH ──────────────────────────────────
-document.querySelectorAll(".filter-btn").forEach(btn => {
-  btn.addEventListener("click", () => {
-    document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
-    btn.classList.add("active");
-    activeFilter = btn.dataset.filter;
-    renderBrowse();
-  });
-});
-document.getElementById("search").addEventListener("input", e => { searchTerm = e.target.value.toLowerCase().trim(); renderBrowse(); });
+document.querySelectorAll(".filter-btn").forEach(btn=>btn.addEventListener("click",()=>{
+  document.querySelectorAll(".filter-btn").forEach(b=>b.classList.remove("active"));
+  btn.classList.add("active"); activeFilter=btn.dataset.filter; renderBrowse();
+}));
+document.getElementById("search").addEventListener("input",e=>{searchTerm=e.target.value.toLowerCase().trim();renderBrowse();});
 
 // ── MODALS ────────────────────────────────────────────
-function closeModal(id) { document.getElementById(id).classList.remove("open"); }
-document.querySelectorAll(".modal-overlay").forEach(m => { m.addEventListener("click", e => { if (e.target === m) m.classList.remove("open"); }); });
-
-// ── PASTE IMPORT ─────────────────────────────────────
-function importFromPaste() {
-  const raw = document.getElementById("import-paste").value.trim();
-  const err = document.getElementById("import-error");
-  const success = document.getElementById("import-success");
-  err.style.display = "none";
-  success.style.display = "none";
-
-  if (!raw) { err.textContent = "Paste a recipe from Claude first."; err.style.display = "block"; return; }
-
-  // Parse key: value lines and multi-line sections
-  const lines = raw.split("\n");
-  const data = { name:"", emoji:"🍽", meal:[], description:"", time:"", makes:"", ingredients:[], steps:[], storage:"" };
-  let section = null;
-
-  for (let i = 0; i < lines.length; i++) {
-    const line = lines[i];
-    const lower = line.toLowerCase();
-
-    // Detect section headers
-    if (/^ingredients:/i.test(line)) { section = "ingredients"; continue; }
-    if (/^steps:/i.test(line)) { section = "steps"; continue; }
-
-    // Detect key: value lines (reset section)
-    const kvMatch = line.match(/^([A-Za-z]+):\s*(.*)$/);
-    if (kvMatch) {
-      const key = kvMatch[1].toLowerCase();
-      const val = kvMatch[2].trim();
-      section = null;
-      if (key === "name") data.name = val;
-      else if (key === "emoji") data.emoji = val || "🍽";
-      else if (key === "meal") data.meal = val.split(",").map(s => s.trim().toLowerCase()).filter(s => ["breakfast","lunch","dinner","snack","batch"].includes(s));
-      else if (key === "description") data.description = val;
-      else if (key === "time") data.time = val;
-      else if (key === "makes") data.makes = val;
-      else if (key === "storage") data.storage = val;
-      continue;
-    }
-
-    // Collect multi-line section content
-    const cleaned = line.replace(/^[\-\*\d]+[\.\)]\s*/, "").trim();
-    if (cleaned && section === "ingredients") data.ingredients.push(cleaned);
-    if (cleaned && section === "steps") data.steps.push(cleaned);
-  }
-
-  if (!data.name) { err.textContent = "Couldn't find a recipe name. Make sure you pasted the full Claude response."; err.style.display = "block"; return; }
-  if (!data.ingredients.length) { err.textContent = "Couldn't find ingredients. Make sure the format includes 'Ingredients:' on its own line."; err.style.display = "block"; return; }
-  if (!data.steps.length) { err.textContent = "Couldn't find steps. Make sure the format includes 'Steps:' on its own line."; err.style.display = "block"; return; }
-  if (!data.meal.length) data.meal = ["dinner"];
-
-  const newId = Date.now();
-  const recipe = { id: newId, emoji: data.emoji, title: data.name, tags: data.meal, desc: data.description || "Custom recipe.", time: data.time || "—", makes: data.makes || "—", ingredients: data.ingredients, steps: data.steps, storage: data.storage || "—", custom: true };
-
-  customRecipes.push(recipe);
-  if (!savedIds.includes(newId)) savedIds.push(newId);
-  saveCustomLocal(); saveLocal();
-
-  document.getElementById("import-paste").value = "";
-  success.innerHTML = `✓ <strong>"${recipe.title}"</strong> imported! Find it in Recipes and your Cookbook.`;
-  success.style.display = "block";
-  renderCustomList(); renderBrowse(); renderCookbook();
-}
+function closeModal(id){document.getElementById(id).classList.remove("open");}
+document.querySelectorAll(".modal-overlay").forEach(m=>m.addEventListener("click",e=>{if(e.target===m)m.classList.remove("open");}));
 
 // ── TAG CHECKS ────────────────────────────────────────
-document.querySelectorAll(".tag-check").forEach(label => { label.addEventListener("click", () => label.classList.toggle("checked")); });
+document.querySelectorAll(".tag-check").forEach(label=>label.addEventListener("click",()=>label.classList.toggle("checked")));
 
 // ── INIT ──────────────────────────────────────────────
 renderBrowse();
 renderCustomList();
-
-// Auto-load suggested week if planner is empty
-if (Object.keys(planner).length === 0) { planner = JSON.parse(JSON.stringify(SUGGESTED_WEEK)); saveLocal(); }
+if (!Object.keys(planner).length) { planner=JSON.parse(JSON.stringify(SUGGESTED_WEEK)); save(); }
 </script>
 </body>
 </html>
