@@ -444,22 +444,20 @@ const recipes = [
 // ── SLOTS ─────────────────────────────────────────────
 const DAYS  = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"];
 const SLOTS = [
-  { key:"breakfast",     label:"Breakfast",    snack:false },
-  { key:"morningSnack",  label:"AM Snack",     snack:true  },
-  { key:"lunch",         label:"Lunch",        snack:false },
-  { key:"afternoonSnack",label:"PM Snack",     snack:true  },
-  { key:"dinner",        label:"Dinner",       snack:false },
+  { key:"breakfast", label:"Breakfast", snack:false },
+  { key:"lunch",     label:"Lunch",     snack:false },
+  { key:"dinner",    label:"Dinner",    snack:false },
 ];
 
 // ── SUGGESTED WEEK ────────────────────────────────────
 const SUGGESTED_WEEK = {
-  Monday:    { breakfast:1,  morningSnack:16, lunch:5,  afternoonSnack:18, dinner:7  },
-  Tuesday:   { breakfast:2,  morningSnack:29, lunch:6,  afternoonSnack:14, dinner:8  },
-  Wednesday: { breakfast:19, morningSnack:21, lunch:22, afternoonSnack:15, dinner:25 },
-  Thursday:  { breakfast:20, morningSnack:16, lunch:23, afternoonSnack:18, dinner:11 },
-  Friday:    { breakfast:3,  morningSnack:29, lunch:24, afternoonSnack:14, dinner:10 },
-  Saturday:  { breakfast:4,  morningSnack:21, lunch:6,  afternoonSnack:17, dinner:28 },
-  Sunday:    { breakfast:1,  morningSnack:15, lunch:5,  afternoonSnack:16, dinner:9  },
+  Monday:    { breakfast:1,  lunch:5,  dinner:7  },
+  Tuesday:   { breakfast:2,  lunch:6,  dinner:8  },
+  Wednesday: { breakfast:19, lunch:22, dinner:25 },
+  Thursday:  { breakfast:20, lunch:23, dinner:11 },
+  Friday:    { breakfast:3,  lunch:24, dinner:10 },
+  Saturday:  { breakfast:4,  lunch:6,  dinner:28 },
+  Sunday:    { breakfast:1,  lunch:5,  dinner:9  },
 };
 
 // ── STATE ─────────────────────────────────────────────
