@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Claire's Kitchen 🍓</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --peach: #FFDDD2;
+      --mint: #C9F0DD;
+      --lavender: #E4D9F5;
+      --yellow: #FFF3C4;
+      --coral: #FF7B6B;
+      --green: #3BAA72;
+      --purple: #7B5EA7;
+      --gold: #D4A017;
+      --text: #3D3535;
+      --text-light: #7A6A6A;
+      --white: #FFFAF8;
+      --card-bg: #FFFFFF;
+      --radius: 20px;
+    }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: var(--white);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    /* HEADER */
+    header {
+      background: linear-gradient(135deg, #FFDDD2 0%, #E4D9F5 50%, #C9F0DD 100%);
+      padding: 40px 20px 30px;
+      text-align: center;
+    }
+
+    .header-emoji { font-size: 56px; display: block; margin-bottom: 8px; }
+
+    header h1 {
+      font-size: 2.4rem;
+      font-weight: 800;
+      color: var(--text);
+      letter-spacing: -0.5px;
+    }
+
+    header p {
+      margin-top: 6px;
+      font-size: 1rem;
+      color: var(--text-light);
+      font-weight: 600;
+    }
+
+    /* SEARCH + FILTERS */
+    .controls {
+      max-width: 800px;
+      margin: 28px auto 0;
+      padding: 0 16px;
+    }
+
+    .search-wrap {
+      position: relative;
+      margin-bottom: 16px;
+    }
+
+    .search-wrap input {
+      width: 100%;
+      padding: 14px 20px 14px 48px;
+      border: 2.5px solid #EDE0D4;
+      border-radius: 50px;
+      font-size: 1rem;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 600;
+      color: var(--text);
+      background: white;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .search-wrap input:focus { border-color: var(--coral); }
+
+    .search-icon {
+      position: absolute;
+      left: 18px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 18px;
+    }
+
+    .filters {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .filter-btn {
+      padding: 8px 18px;
+      border-radius: 50px;
+      border: 2.5px solid transparent;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 700;
+      font-size: 0.88rem;
+      cursor: pointer;
+      transition: all 0.18s;
+      background: white;
+      border-color: #EDE0D4;
+      color: var(--text-light);
+    }
+
+    .filter-btn.active, .filter-btn:hover {
+      color: white;
+      border-color: transparent;
+    }
+
+    .filter-btn[data-filter="all"].active    { background: var(--coral); }
+    .filter-btn[data-filter="breakfast"].active { background: #F4A261; }
+    .filter-btn[data-filter="lunch"].active     { background: var(--green); }
+    .filter-btn[data-filter="dinner"].active    { background: var(--purple); }
+    .filter-btn[data-filter="snack"].active     { background: var(--gold); }
+    .filter-btn[data-filter="batch"].active     { background: #4A90D9; }
+
+    .filter-btn:hover { background: var(--coral); color: white; }
+
+    /* GRID */
+    .grid {
+      max-width: 800px;
+      margin: 28px auto 60px;
+      padding: 0 16px;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    /* CARD */
+    .card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.18s, box-shadow 0.18s;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card:hover { transform: translateY(-4px); box-shadow: 0 8px 30px rgba(0,0,0,0.12); }
+
+    .card-header {
+      padding: 22px 22px 14px;
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+
+    .card-emoji { font-size: 38px; flex-shrink: 0; }
+
+    .card-title { font-size: 1.05rem; font-weight: 800; line-height: 1.3; }
+
+    .card-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 6px; }
+
+    .tag {
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 50px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .tag-breakfast { background: #FEE4C4; color: #C4621A; }
+    .tag-lunch     { background: #C9F0DD; color: #2A7A52; }
+    .tag-dinner    { background: #E4D9F5; color: #5B3F8A; }
+    .tag-snack     { background: #FFF3C4; color: #9A6E00; }
+    .tag-batch     { background: #D4EAFF; color: #1A5FAA; }
+
+    .card-body { padding: 0 22px 18px; flex: 1; }
+
+    .card-desc {
+      font-size: 0.88rem;
+      color: var(--text-light);
+      line-height: 1.55;
+      font-weight: 600;
+    }
+
+    .card-meta {
+      display: flex;
+      gap: 12px;
+      margin-top: 12px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--text-light);
+    }
+
+    .card-meta span { display: flex; align-items: center; gap: 4px; }
+
+    .expand-btn {
+      margin: 0 22px 18px;
+      padding: 10px;
+      border-radius: 12px;
+      border: none;
+      background: var(--white);
+      font-family: 'Nunito', sans-serif;
+      font-weight: 700;
+      font-size: 0.85rem;
+      color: var(--coral);
+      cursor: pointer;
+      transition: background 0.15s;
+      text-align: center;
+    }
+
+    .expand-btn:hover { background: var(--peach); }
+
+    /* RECIPE DETAIL */
+    .recipe-detail {
+      display: none;
+      padding: 0 22px 22px;
+      border-top: 2px dashed #F0E0D8;
+      margin-top: 4px;
+    }
+
+    .recipe-detail.open { display: block; }
+
+    .recipe-detail h4 {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text-light);
+      margin: 16px 0 8px;
+    }
+
+    .recipe-detail ul, .recipe-detail ol {
+      padding-left: 18px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      line-height: 1.8;
+      color: var(--text);
+    }
+
+    .recipe-detail .storage-box {
+      background: var(--mint);
+      border-radius: 12px;
+      padding: 12px 16px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-top: 14px;
+      color: #1F6645;
+    }
+
+    /* EMPTY STATE */
+    .empty {
+      grid-column: 1/-1;
+      text-align: center;
+      padding: 60px 20px;
+      color: var(--text-light);
+    }
+
+    .empty-emoji { font-size: 48px; display: block; margin-bottom: 12px; }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 0.8rem;
+      color: var(--text-light);
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <span class="header-emoji">🍓</span>
+  <h1>Claire's Kitchen</h1>
+  <p>Simple, yummy ideas for our little one</p>
+</header>
+
+<div class="controls">
+  <div class="search-wrap">
+    <span class="search-icon">🔍</span>
+    <input type="text" id="search" placeholder="Search recipes… banana, eggs, muffins…" />
+  </div>
+  <div class="filters">
+    <button class="filter-btn active" data-filter="all">✨ All</button>
+    <button class="filter-btn" data-filter="breakfast">🌅 Breakfast</button>
+    <button class="filter-btn" data-filter="lunch">☀️ Lunch</button>
+    <button class="filter-btn" data-filter="dinner">🌙 Dinner</button>
+    <button class="filter-btn" data-filter="snack">🍎 Snack</button>
+    <button class="filter-btn" data-filter="batch">📦 Batch Cook</button>
+  </div>
+</div>
+
+<div class="grid" id="grid"></div>
+
+<footer>Made with love for Claire 💕</footer>
+
+<script>
+const recipes = [
+  {
+    id: 1,
+    emoji: "🥞",
+    title: "Banana Oat Pancakes",
+    tags: ["breakfast", "batch"],
+    desc: "2-ingredient base — banana and eggs. No added sugar, naturally sweet. Freeze extras for the week.",
+    time: "10 min",
+    makes: "~8 pancakes",
+    ingredients: [
+      "1 ripe banana",
+      "2 eggs",
+      "2 tbsp rolled oats (optional)",
+      "Pinch of cinnamon",
+      "Butter for the pan"
+    ],
+    steps: [
+      "Mash the banana until smooth.",
+      "Whisk in eggs, oats, and cinnamon.",
+      "Cook small silver dollar rounds over medium-low heat, 2–3 min per side.",
+      "Cool before serving — these stay hot inside.",
+      "Serve as strips or small rounds. Freeze extras between parchment."
+    ],
+    storage: "Fridge 3 days · Freeze 2 months (reheat in toaster)"
+  },
+  {
+    id: 2,
+    emoji: "🥚",
+    title: "Soft Scrambled Eggs with Avocado",
+    tags: ["breakfast"],
+    desc: "Ready in 5 minutes. Low and slow is the secret — creamy, never rubbery. Avocado spears alongside for pincer grasp practice.",
+    time: "5 min",
+    makes: "1 serving",
+    ingredients: [
+      "1–2 eggs",
+      "1 tsp butter",
+      "Splash of whole milk",
+      "¼ ripe avocado"
+    ],
+    steps: [
+      "Whisk eggs with a splash of milk.",
+      "Melt butter in a small pan over low heat.",
+      "Add eggs and stir constantly with a spatula.",
+      "Pull off heat while still slightly glossy.",
+      "Serve alongside avocado spears."
+    ],
+    storage: "Best fresh"
+  },
+  {
+    id: 3,
+    emoji: "🧁",
+    title: "Mini Egg Muffins",
+    tags: ["breakfast", "batch"],
+    desc: "Crustless mini quiches baked in a muffin tin. Make a batch Sunday, pull from the fridge all week. Easy to customize with whatever veggies you have.",
+    time: "25 min",
+    makes: "~18–20 muffins",
+    ingredients: [
+      "6 eggs",
+      "3 tbsp whole milk",
+      "¼ cup shredded cheddar or mozzarella",
+      "¼ cup finely diced bell pepper",
+      "¼ cup chopped spinach or zucchini",
+      "Cooking spray"
+    ],
+    steps: [
+      "Preheat oven to 350°F. Grease a mini muffin tin well.",
+      "Whisk eggs and milk, stir in cheese and vegetables.",
+      "Pour into mini muffin cups about ¾ full.",
+      "Bake 15–18 minutes until puffed and set.",
+      "Cool 5 minutes before removing."
+    ],
+    storage: "Fridge 4 days · Freeze 1 month (microwave 20–30 sec from frozen)"
+  },
+  {
+    id: 4,
+    emoji: "🍞",
+    title: "French Toast Strips",
+    tags: ["breakfast"],
+    desc: "A weekend breakfast upgrade. Soft inside, golden outside. Naturally sweet from cinnamon and egg — no syrup needed.",
+    time: "10 min",
+    makes: "6–8 strips",
+    ingredients: [
+      "2 slices whole grain bread",
+      "1 egg",
+      "2 tbsp whole milk",
+      "Pinch of cinnamon",
+      "Butter for the pan"
+    ],
+    steps: [
+      "Whisk egg, milk, and cinnamon in a shallow bowl.",
+      "Soak each bread slice for 15–20 seconds per side.",
+      "Cook over medium-low heat in butter, 2–3 min per side.",
+      "Cool slightly, then cut into strips.",
+      "Serve with soft fruit alongside."
+    ],
+    storage: "Fridge 1–2 days (re-warm in dry pan)"
+  },
+  {
+    id: 5,
+    emoji: "🥜",
+    title: "PB & J",
+    tags: ["lunch"],
+    desc: "Claire's lunch staple. Thin layer of peanut butter — great healthy fat and protein. Cut into strips or small squares for easy eating.",
+    time: "2 min",
+    makes: "1 serving",
+    ingredients: [
+      "1 slice whole grain bread",
+      "Thin layer of natural peanut butter",
+      "Thin layer of no-sugar-added jam or mashed fresh fruit"
+    ],
+    steps: [
+      "Spread a thin layer of peanut butter — not too thick.",
+      "Add a thin layer of jam or mashed berry.",
+      "Cut into strips or small squares.",
+      "Serve with avocado and fruit on the side."
+    ],
+    storage: "Best fresh"
+  },
+  {
+    id: 6,
+    emoji: "🫓",
+    title: "Cheese Quesadilla with Avocado",
+    tags: ["lunch"],
+    desc: "Claire's other lunch go-to. Soft tortilla, melted cheese, served with avocado. Quick and easy. Cut into small strips or triangles.",
+    time: "5 min",
+    makes: "1 serving",
+    ingredients: [
+      "1 small whole wheat tortilla",
+      "2 tbsp shredded cheddar or mozzarella",
+      "¼ ripe avocado"
+    ],
+    steps: [
+      "Heat a dry pan over medium heat.",
+      "Place tortilla in pan, add cheese to one half.",
+      "Fold over and cook 1–2 min per side until golden and cheese melts.",
+      "Cool slightly, cut into strips or small triangles.",
+      "Serve with avocado cubes or spears."
+    ],
+    storage: "Best fresh"
+  },
+  {
+    id: 7,
+    emoji: "🧇",
+    title: "Sweet Potato Bean Broccoli Muffins",
+    tags: ["dinner", "lunch", "batch"],
+    desc: "One of Claire's dinner staples. Packed with protein, fiber, and veggies. Soft enough to gum, easy to pick up. Make a big batch on Sunday.",
+    time: "35 min",
+    makes: "~24 mini muffins",
+    ingredients: [
+      "1 cup mashed sweet potato (1 medium)",
+      "½ cup canned black or white beans, mashed",
+      "½ cup broccoli, steamed and finely chopped",
+      "2 eggs",
+      "¼ cup oat flour",
+      "¼ tsp garlic powder",
+      "Pinch of cumin (optional)"
+    ],
+    steps: [
+      "Preheat oven to 375°F. Grease mini muffin tin well.",
+      "Mash sweet potato and beans together.",
+      "Chop steamed broccoli finely.",
+      "Mix all ingredients until combined.",
+      "Fill mini muffin cups ¾ full.",
+      "Bake 18–22 minutes until set and lightly golden.",
+      "Cool 5 minutes in tin before removing."
+    ],
+    storage: "Fridge 4 days · Freeze 2 months (microwave 15–20 sec)"
+  },
+  {
+    id: 8,
+    emoji: "🫐",
+    title: "Quinoa Broccoli Cheese Muffins",
+    tags: ["dinner", "lunch", "batch"],
+    desc: "Claire's other dinner staple. Quinoa is a complete protein, cheese binds it all. These firm up nicely and are easy to pick up.",
+    time: "35 min",
+    makes: "~20–24 mini muffins",
+    ingredients: [
+      "1 cup cooked quinoa",
+      "½ cup broccoli, steamed and finely chopped",
+      "½ cup shredded cheddar",
+      "2 eggs",
+      "2 tbsp whole milk",
+      "¼ tsp garlic powder"
+    ],
+    steps: [
+      "Preheat oven to 375°F. Grease mini muffin tin.",
+      "Cook quinoa, let cool slightly.",
+      "Steam broccoli until very soft, chop finely.",
+      "Whisk eggs and milk, mix in quinoa, broccoli, and cheese.",
+      "Fill mini muffin cups ¾ full, press down lightly.",
+      "Bake 20–25 minutes until golden and set.",
+      "Cool 5 minutes before removing."
+    ],
+    storage: "Fridge 4 days · Freeze 2 months (microwave 30–45 sec)"
+  },
+  {
+    id: 9,
+    emoji: "🍝",
+    title: "Pasta with Hidden Veggie Sauce",
+    tags: ["dinner", "batch"],
+    desc: "Tomato-based sauce blended smooth with carrots, zucchini, and spinach. Looks like a regular red sauce. Freeze the sauce in ice cube trays.",
+    time: "30 min",
+    makes: "4–6 servings of sauce",
+    ingredients: [
+      "1 can (14 oz) crushed tomatoes, no salt added",
+      "1 medium carrot, chopped",
+      "1 small zucchini, chopped",
+      "1 large handful baby spinach",
+      "2 cloves garlic",
+      "1 tbsp olive oil",
+      "Short pasta (penne, rotini, ditalini), cooked very soft"
+    ],
+    steps: [
+      "Cook garlic in olive oil 1 minute over medium heat.",
+      "Add carrot and zucchini, cook 5 minutes.",
+      "Add tomatoes and spinach, simmer 15 minutes.",
+      "Blend smooth with an immersion blender.",
+      "Toss with very soft cooked pasta.",
+      "Top with a pinch of parmesan."
+    ],
+    storage: "Sauce: fridge 4 days · Freeze sauce in ice cube trays up to 2 months"
+  },
+  {
+    id: 10,
+    emoji: "🐟",
+    title: "Mini Salmon Patties",
+    tags: ["dinner", "lunch", "batch"],
+    desc: "Same concept as the muffin tray — make a batch, fridge or freeze, reheat through the week. Mild flavor, soft texture, great omega-3s.",
+    time: "20 min",
+    makes: "~14–16 small patties",
+    ingredients: [
+      "1 can (14.75 oz) wild-caught salmon, drained",
+      "1 egg",
+      "3 tbsp breadcrumbs or oat flour",
+      "2 tbsp plain Greek yogurt",
+      "1 tsp lemon juice",
+      "¼ tsp garlic powder"
+    ],
+    steps: [
+      "Drain salmon well and remove any skin or larger bones.",
+      "Mix all ingredients until combined.",
+      "Form into small 1.5-inch patties.",
+      "Cook in olive oil over medium heat, 3–4 min per side.",
+      "Cool on paper towel before serving."
+    ],
+    storage: "Fridge 3 days · Freeze 1 month (thaw overnight, reheat in pan)"
+  },
+  {
+    id: 11,
+    emoji: "🥩",
+    title: "Mini Turkey & Veggie Meatballs",
+    tags: ["dinner", "lunch", "batch"],
+    desc: "A great way to sneak in vegetables. Soft enough to gum, easy to pick up. Baked in the oven — no pan to watch.",
+    time: "30 min",
+    makes: "~20 meatballs",
+    ingredients: [
+      "½ lb ground turkey or beef",
+      "¼ cup finely grated zucchini (squeezed dry)",
+      "¼ cup finely grated carrot",
+      "2 tbsp breadcrumbs or oat flour",
+      "1 egg",
+      "¼ tsp garlic powder"
+    ],
+    steps: [
+      "Preheat oven to 375°F. Line baking sheet with parchment.",
+      "Grate zucchini and carrot, squeeze dry in a paper towel.",
+      "Mix all ingredients until just combined.",
+      "Roll into small 1-inch balls.",
+      "Bake 15–18 minutes until cooked through.",
+      "Cool completely before serving."
+    ],
+    storage: "Fridge 3 days · Freeze 2 months (microwave 30–45 sec)"
+  },
+  {
+    id: 12,
+    emoji: "🌽",
+    title: "Zucchini Corn Fritters",
+    tags: ["dinner", "lunch", "batch"],
+    desc: "Light, soft, slightly crispy on the outside. A good texture change from muffins. The key is squeezing the zucchini dry first.",
+    time: "25 min",
+    makes: "~12–14 fritters",
+    ingredients: [
+      "1 medium zucchini, grated",
+      "½ cup frozen corn, thawed",
+      "1 egg",
+      "¼ cup flour or oat flour",
+      "¼ cup shredded cheddar",
+      "¼ tsp garlic powder",
+      "Olive oil for the pan"
+    ],
+    steps: [
+      "Grate zucchini and squeeze out all moisture in a kitchen towel — this matters.",
+      "Mix zucchini, corn, egg, flour, cheese, and garlic powder.",
+      "Heat a thin layer of olive oil over medium heat.",
+      "Drop heaping tablespoon portions, flatten slightly.",
+      "Cook 3–4 min per side until golden.",
+      "Drain on paper towel, cool before serving."
+    ],
+    storage: "Fridge 3 days · Freeze 2 months (reheat in oven at 375°F 8–10 min)"
+  },
+  {
+    id: 13,
+    emoji: "🐠",
+    title: "Salmon & Sweet Potato Mash",
+    tags: ["dinner", "lunch"],
+    desc: "High in omega-3s and vitamin A. Serve by spoon or let Claire practice with a preloaded spoon.",
+    time: "20 min",
+    makes: "2–3 servings",
+    ingredients: [
+      "1 small salmon fillet (~3 oz)",
+      "1 medium sweet potato",
+      "1–2 tbsp whole milk to loosen",
+      "Small squeeze of lemon (optional)"
+    ],
+    steps: [
+      "Microwave sweet potato 5–6 min until very soft, scoop flesh.",
+      "Bake salmon at 400°F for 12–15 min until flaky.",
+      "Flake salmon into small pieces, checking for bones.",
+      "Mash salmon and sweet potato together.",
+      "Add milk to reach a soft, spoonable consistency."
+    ],
+    storage: "Fridge 2 days · Freeze in ice cube trays"
+  },
+  {
+    id: 14,
+    emoji: "🍦",
+    title: "Greek Yogurt with Soft Fruit",
+    tags: ["snack", "breakfast"],
+    desc: "The easiest snack. Full-fat plain Greek yogurt is packed with protein and fat. Top with whatever soft fruit you have — mashed or diced.",
+    time: "2 min",
+    makes: "1 serving",
+    ingredients: [
+      "3–4 tbsp full-fat plain Greek yogurt",
+      "Soft fruit: banana, mango, blueberries (halved), or pear"
+    ],
+    steps: [
+      "Spoon yogurt into a small bowl.",
+      "Top with soft diced or mashed fruit.",
+      "Serve with a preloaded spoon or let her self-feed."
+    ],
+    storage: "Best fresh"
+  },
+  {
+    id: 15,
+    emoji: "🥑",
+    title: "Avocado Toast Strips",
+    tags: ["snack", "lunch"],
+    desc: "Quick and nutritious. Avocado is one of the best fats for brain development at this age. Great for self-feeding practice.",
+    time: "3 min",
+    makes: "1 serving",
+    ingredients: [
+      "1 slice whole grain bread, toasted lightly",
+      "¼ ripe avocado",
+      "Squeeze of lemon (optional)"
+    ],
+    steps: [
+      "Mash avocado onto toast.",
+      "Cut into strips.",
+      "Serve as finger food."
+    ],
+    storage: "Best fresh"
+  },
+  {
+    id: 16,
+    emoji: "🍌",
+    title: "Banana Peanut Butter Bites",
+    tags: ["snack"],
+    desc: "No cooking required. Banana rounds with a tiny dot of peanut butter. Great for a quick snack on the go.",
+    time: "2 min",
+    makes: "1 serving",
+    ingredients: [
+      "½ banana, sliced into rounds",
+      "Tiny dot of natural peanut butter on each slice"
+    ],
+    steps: [
+      "Slice banana into rounds.",
+      "Add a very small dot of peanut butter on top of each.",
+      "Serve immediately."
+    ],
+    storage: "Best fresh"
+  },
+  {
+    id: 17,
+    emoji: "⚡",
+    title: "No-Bake Oat Energy Balls",
+    tags: ["snack", "batch"],
+    desc: "Roll them up in 10 minutes, store in the fridge all week. Great mid-morning or afternoon snack — no baking, no mess.",
+    time: "15 min + chill",
+    makes: "~18–20 balls",
+    ingredients: [
+      "1 cup rolled oats",
+      "⅓ cup natural peanut or almond butter",
+      "¼ cup honey (not before age 2 — substitute maple syrup)",
+      "¼ cup mini chocolate chips or raisins (optional)",
+      "1 tsp vanilla"
+    ],
+    steps: [
+      "Mix all ingredients in a bowl until combined.",
+      "Refrigerate the mixture 30 minutes to firm up.",
+      "Roll into small 1-inch balls.",
+      "Store in the fridge."
+    ],
+    storage: "Fridge 1 week · Freeze 2 months"
+  },
+  {
+    id: 18,
+    emoji: "🧀",
+    title: "Cheese & Fruit Plate",
+    tags: ["snack"],
+    desc: "The easiest no-cook snack. Soft cheese cubes and whatever fruit is in the fridge. Great for exploring textures.",
+    time: "2 min",
+    makes: "1 serving",
+    ingredients: [
+      "Small cubes of soft cheese (mozzarella, mild cheddar)",
+      "Soft fruit: blueberries (halved), pear, mango, banana"
+    ],
+    steps: [
+      "Cut cheese into small cubes.",
+      "Halve or dice fruit to safe size.",
+      "Arrange on a plate — let her self-feed."
+    ],
+    storage: "Best fresh"
+  }
+];
+
+let activeFilter = "all";
+let searchTerm = "";
+
+function getTags(recipe) {
+  return recipe.tags.map(t => `<span class="tag tag-${t}">${t}</span>`).join("");
+}
+
+function renderCards() {
+  const grid = document.getElementById("grid");
+  const filtered = recipes.filter(r => {
+    const matchFilter = activeFilter === "all" || r.tags.includes(activeFilter);
+    const matchSearch = searchTerm === "" ||
+      r.title.toLowerCase().includes(searchTerm) ||
+      r.desc.toLowerCase().includes(searchTerm) ||
+      r.ingredients.join(" ").toLowerCase().includes(searchTerm);
+    return matchFilter && matchSearch;
+  });
+
+  if (filtered.length === 0) {
+    grid.innerHTML = `<div class="empty"><span class="empty-emoji">🥺</span><p>No recipes found — try a different search!</p></div>`;
+    return;
+  }
+
+  grid.innerHTML = filtered.map(r => `
+    <div class="card" id="card-${r.id}">
+      <div class="card-header">
+        <span class="card-emoji">${r.emoji}</span>
+        <div>
+          <div class="card-title">${r.title}</div>
+          <div class="card-tags">${getTags(r)}</div>
+        </div>
+      </div>
+      <div class="card-body">
+        <p class="card-desc">${r.desc}</p>
+        <div class="card-meta">
+          <span>⏱ ${r.time}</span>
+          <span>🍽 ${r.makes}</span>
+        </div>
+      </div>
+      <button class="expand-btn" onclick="toggle(${r.id})">See recipe ↓</button>
+      <div class="recipe-detail" id="detail-${r.id}">
+        <h4>Ingredients</h4>
+        <ul>${r.ingredients.map(i => `<li>${i}</li>`).join("")}</ul>
+        <h4>Steps</h4>
+        <ol>${r.steps.map(s => `<li>${s}</li>`).join("")}</ol>
+        <div class="storage-box">📦 ${r.storage}</div>
+      </div>
+    </div>
+  `).join("");
+}
+
+function toggle(id) {
+  const detail = document.getElementById(`detail-${id}`);
+  const btn = detail.previousElementSibling;
+  const open = detail.classList.toggle("open");
+  btn.textContent = open ? "Hide recipe ↑" : "See recipe ↓";
+}
+
+document.querySelectorAll(".filter-btn").forEach(btn => {
+  btn.addEventListener("click", () => {
+    document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+    activeFilter = btn.dataset.filter;
+    renderCards();
+  });
+});
+
+document.getElementById("search").addEventListener("input", e => {
+  searchTerm = e.target.value.toLowerCase().trim();
+  renderCards();
+});
+
+renderCards();
+</script>
+</body>
+</html>
