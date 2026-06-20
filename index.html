@@ -156,6 +156,18 @@
     .btn-then-add:hover { background: var(--coral); color: white; }
 
     footer { text-align: center; padding: 20px; font-size: 0.8rem; color: var(--text-light); font-weight: 600; }
+
+    /* IMPORT BOX */
+    .import-box { background: white; border-radius: var(--radius); box-shadow: 0 4px 20px rgba(0,0,0,0.07); padding: 24px; margin-bottom: 10px; }
+    .import-box label { display: block; font-size: 0.82rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-light); margin-bottom: 10px; }
+    .import-box textarea { width: 100%; padding: 12px 14px; border: 2.5px solid #EDE0D4; border-radius: 12px; font-family: 'Nunito', sans-serif; font-weight: 600; font-size: 0.85rem; color: var(--text); background: var(--white); outline: none; resize: vertical; transition: border-color 0.2s; line-height: 1.6; }
+    .import-box textarea:focus { border-color: var(--purple); }
+    .btn-import { margin-top: 12px; width: 100%; padding: 13px; border-radius: 14px; border: none; background: linear-gradient(135deg, var(--purple), #9B6FD4); color: white; font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 0.95rem; cursor: pointer; transition: all 0.2s; }
+    .btn-import:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(123,94,167,0.4); }
+    .import-success { background: var(--mint); color: #1F6645; border-radius: 12px; padding: 12px 16px; font-size: 0.88rem; font-weight: 700; margin-top: 12px; }
+    .import-divider { text-align: center; margin: 22px 0; position: relative; }
+    .import-divider::before { content: ''; position: absolute; top: 50%; left: 0; right: 0; height: 2px; background: #EDE0D4; }
+    .import-divider span { background: var(--white); padding: 0 14px; position: relative; font-size: 0.82rem; font-weight: 700; color: var(--text-light); }
   </style>
 </head>
 <body>
@@ -227,9 +239,20 @@
       <p>Got a great idea from Claude or anywhere else? Save it here.</p>
     </div>
     <div class="ai-tip">
-      <strong>💡 How to use with Get New Recipe Ideas</strong>
-      Tap ✨ Get New Recipe Ideas on the Recipes tab → Claude opens and gives you ideas → come back here and fill in your favorite → it'll show up in Recipes and your Cookbook instantly.
+      <strong>💡 Quick import from Claude</strong>
+      Tap ✨ Get New Recipe Ideas → Claude gives you a recipe in the right format → copy it → paste it below and hit Import. Done.
     </div>
+
+    <div class="import-box">
+      <label>Paste Claude's recipe here</label>
+      <textarea id="import-paste" rows="7" placeholder="Name: Cheesy Lentil Bites&#10;Emoji: 🫘&#10;Meal: dinner, batch&#10;Description: Soft and cheesy, great for little fingers.&#10;Time: 30 min&#10;Makes: ~20 bites&#10;Ingredients:&#10;1 cup red lentils&#10;½ cup cheddar&#10;Steps:&#10;Cook lentils until soft.&#10;Bake at 375F for 18 min.&#10;Storage: Fridge 4 days · Freeze 2 months"></textarea>
+      <button class="btn-import" onclick="importFromPaste()">⚡ Import Recipe</button>
+      <div id="import-error" class="add-error" style="display:none"></div>
+      <div id="import-success" class="import-success" style="display:none"></div>
+    </div>
+
+    <div class="import-divider"><span>or fill in manually</span></div>
+
     <div class="add-form">
       <div class="form-row">
         <label>Recipe name *</label>
@@ -576,7 +599,7 @@ function askClaude() {
   if (ingredient) prompt += `I'd love a recipe using ${ingredient}. `;
   prompt += `I'm looking for something simple to make, ideally batch-cook friendly (can be stored in the fridge for a few days or frozen). `;
   if (notes) prompt += `Additional notes: ${notes}. `;
-  prompt += `Please give me 2–3 recipe ideas with ingredients and simple steps.`;
+  prompt += `\n\nPlease give me 2–3 recipe ideas. For each one, format it EXACTLY like this so I can paste it into my recipe app:\n\nName: [recipe name]\nEmoji: [one emoji]\nMeal: [breakfast / lunch / dinner / snack / batch — pick all that apply, comma separated]\nDescription: [one sentence summary]\nTime: [cook time]\nMakes: [yield]\nIngredients:\n[one ingredient per line]\nSteps:\n[one step per line]\nStorage: [fridge and freeze info]\n\n---\n\nUse that exact format with those exact labels for each recipe.`;
   window.open(`https://claude.ai/new?q=${encodeURIComponent(prompt)}`, "_blank");
   closeModal("ai-modal");
 }
@@ -609,6 +632,69 @@ document.getElementById("search").addEventListener("input", e => { searchTerm = 
 // ── MODALS ────────────────────────────────────────────
 function closeModal(id) { document.getElementById(id).classList.remove("open"); }
 document.querySelectorAll(".modal-overlay").forEach(m => { m.addEventListener("click", e => { if (e.target === m) m.classList.remove("open"); }); });
+
+// ── PASTE IMPORT ─────────────────────────────────────
+function importFromPaste() {
+  const raw = document.getElementById("import-paste").value.trim();
+  const err = document.getElementById("import-error");
+  const success = document.getElementById("import-success");
+  err.style.display = "none";
+  success.style.display = "none";
+
+  if (!raw) { err.textContent = "Paste a recipe from Claude first."; err.style.display = "block"; return; }
+
+  // Parse key: value lines and multi-line sections
+  const lines = raw.split("\n");
+  const data = { name:"", emoji:"🍽", meal:[], description:"", time:"", makes:"", ingredients:[], steps:[], storage:"" };
+  let section = null;
+
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i];
+    const lower = line.toLowerCase();
+
+    // Detect section headers
+    if (/^ingredients:/i.test(line)) { section = "ingredients"; continue; }
+    if (/^steps:/i.test(line)) { section = "steps"; continue; }
+
+    // Detect key: value lines (reset section)
+    const kvMatch = line.match(/^([A-Za-z]+):\s*(.*)$/);
+    if (kvMatch) {
+      const key = kvMatch[1].toLowerCase();
+      const val = kvMatch[2].trim();
+      section = null;
+      if (key === "name") data.name = val;
+      else if (key === "emoji") data.emoji = val || "🍽";
+      else if (key === "meal") data.meal = val.split(",").map(s => s.trim().toLowerCase()).filter(s => ["breakfast","lunch","dinner","snack","batch"].includes(s));
+      else if (key === "description") data.description = val;
+      else if (key === "time") data.time = val;
+      else if (key === "makes") data.makes = val;
+      else if (key === "storage") data.storage = val;
+      continue;
+    }
+
+    // Collect multi-line section content
+    const cleaned = line.replace(/^[\-\*\d]+[\.\)]\s*/, "").trim();
+    if (cleaned && section === "ingredients") data.ingredients.push(cleaned);
+    if (cleaned && section === "steps") data.steps.push(cleaned);
+  }
+
+  if (!data.name) { err.textContent = "Couldn't find a recipe name. Make sure you pasted the full Claude response."; err.style.display = "block"; return; }
+  if (!data.ingredients.length) { err.textContent = "Couldn't find ingredients. Make sure the format includes 'Ingredients:' on its own line."; err.style.display = "block"; return; }
+  if (!data.steps.length) { err.textContent = "Couldn't find steps. Make sure the format includes 'Steps:' on its own line."; err.style.display = "block"; return; }
+  if (!data.meal.length) data.meal = ["dinner"];
+
+  const newId = Date.now();
+  const recipe = { id: newId, emoji: data.emoji, title: data.name, tags: data.meal, desc: data.description || "Custom recipe.", time: data.time || "—", makes: data.makes || "—", ingredients: data.ingredients, steps: data.steps, storage: data.storage || "—", custom: true };
+
+  customRecipes.push(recipe);
+  if (!savedIds.includes(newId)) savedIds.push(newId);
+  saveCustomLocal(); saveLocal();
+
+  document.getElementById("import-paste").value = "";
+  success.innerHTML = `✓ <strong>"${recipe.title}"</strong> imported! Find it in Recipes and your Cookbook.`;
+  success.style.display = "block";
+  renderCustomList(); renderBrowse(); renderCookbook();
+}
 
 // ── TAG CHECKS ────────────────────────────────────────
 document.querySelectorAll(".tag-check").forEach(label => { label.addEventListener("click", () => label.classList.toggle("checked")); });
